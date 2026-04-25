@@ -18,7 +18,7 @@ pre: " <b> 1.1. </b> "
 | 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 21/04/2026  | 21/04/2026    | <https://cloudjourney.awsstudygroup.com/> |
 | 4   | -  Tìm hiểu về Firewall trong VPC <br> - Tạo VPC , Subnet , Internet Gateway , Route Table , Security Group và VPC Flow Logs <br> - Làm việc deploying Amazon EC2 Instance | 22/04/2026  | 22/04/2026      | <https://cloudjourney.awsstudygroup.com/> |
 | 5   | - Cấu hình Elastic IP , tạo NAT Gateway , Sử dụng EC2 instance endpoint để kết nối server <br> Học cách xây dựng site-to-site VPN connection                  | 23/04/2026   | 23/04/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - Tìm hiểu và làm việc cách tạo EC2 instance windows , linux và kết nối máy tính đến microsoft window server , linux server <br> Học được cách chuyển loại instance của EC2 , tạo và quản lý được cách làm việc với snapshot EBS , AMI và recovering access của window instance <br> Học được cách set up LAMP server và config database để deployee ứng dụng <br> Làm việc với cách chia role và gán role để quản lý chi phí IAM                                                                                   | 24/04/2026  | 24/04/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
 
 ### Kết quả đạt được tuần 1:
