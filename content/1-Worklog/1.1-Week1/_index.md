@@ -19,35 +19,29 @@ pre: " <b> 1.1. </b> "
 | 4   | - Research Firewall in VPC <br> - Create VPC , Subnet , Internet Gateway , Route Table , Security Group and VPC Flow Logs <br> - Working with deploying Amazon EC2 Instance <br>| 04/22/2026 | 04/22/2026     | <https://cloudjourney.awsstudygroup.com/> |
 | 5   | -Set up Elastic Ip ,  Create NAT Gateway , Using EC2 instance endpoint to connect <br> learning how to set up site-to-site VPN connection| 04/23/2026 | 04/23/2026      | <https://cloudjourney.awsstudygroup.com/> |
 | 6   | - Learn and practice how to create Windows and Linux EC2 instances, and how to connect from a local computer to Microsoft Windows and Linux servers. <br> Learn how to change EC2 instance types, create and manage EBS snapshots and AMIs, and recover access to Windows instances. <br> Learn how to set up a LAMP server and configure a database to deploy applications. <br> Practice creating, dividing, and assigning IAM roles for cost management.                                                                               | 04/24/2026 | 04/24/2026      | <https://cloudjourney.awsstudygroup.com/> |
-
-
+| 7  | - learn and research how to instance profiling IAM role for EC2 | 04/25/2026 | 04/25/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| Sunday | - learn and create cloud9 to development environment | 04/26/2026 | 04/26/2026   | <https://cloudjourney.awsstudygroup.com/> |
 ### Week 1 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+- Onboarding & AWS Fundamentals
 
-* Successfully created and configured an AWS Free Tier account.
+  + Integrated into the FCJ team, understood internship regulations, and grasped core AWS cloud concepts across Compute, Storage, Networking, and Database services.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+- Identity & Access Management (IAM)
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+  + Mastered the creation and management of IAM Users, Groups, Roles, and Policies.
+  + Deepened understanding of advanced security mechanisms, including role switching (Assume Role), policy differentiation, and implementing IAM Instance Profiles for Amazon EC2.
 
-* Used AWS CLI to perform basic operations such as:
+- Cloud Networking (VPC)
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+  + Successfully designed and provisioned a custom Virtual Private Cloud (VPC) from scratch.
+  + Configured core network components including Subnets, Route Tables, Internet Gateways, NAT Gateways, Security Groups, VPC Flow Logs, Elastic IPs, and explored Site-to-Site VPN setups.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Compute Services (Amazon EC2)
+
+  + Acquired practical skills in deploying, connecting to (via SSH/RDP), and managing both Linux and Windows EC2 instances.
+  + Performed advanced administration tasks such as changing instance types, managing EBS snapshots and AMIs, recovering access to Windows instances, and deploying a LAMP stack server.
+
+- Development Environment
+
+  + Provisioned and configured an AWS Cloud9 IDE instance to serve as a cloud-based development environment for upcoming tasks.
