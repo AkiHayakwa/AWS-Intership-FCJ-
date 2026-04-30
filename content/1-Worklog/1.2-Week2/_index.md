@@ -17,7 +17,7 @@ pre: " <b> 1.2. </b> "
 | 2   | - Learn and deploy static web hosting using S3 bucket <br> - Learn how to set up RDS  <br> -  Learning and practise with Amazon EC2 auto scaling , Elastic load balancing , Launching Template                                                                                    | 04/27/2026 | 04/27/2026     |
 | 3   | - Learn and practise aws cloudwatch workshop , viewing metrics , search and math expression , cloudwatch logs <br> set up hybrid dns with route 53 <br> learning and research about AWS CLI                             | 04/28/2026 | 04/28/2026      | <https://cloudjourney.awsstudygroup.com/> |
 | 4   |- learn how to create deploy aws backup to the system , backup plan , set up notification send to email <br> research and practise how to import/export VM using AWS S3 bucket , EC2 | 04/29/2026 | 04/29/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 5   | - Research and practise how to use docker container apply with AWS service like Amazon ECR ,  RDS , EC2                     | 04/30/2026 | 04/30/2026      | <https://cloudjourney.awsstudygroup.com/> |
 | 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
 

@@ -21,7 +21,7 @@ pre: " <b> 1.2. </b> "
 | 2   | - Tìm hiểu và deploy static web hosting bằng S3 bucket <br> - Học được cách set up RDS  <br> học và thực hành với amazon EC2 auto scaling , elastic load balancing và launch template                                                                                          | 27/04/2026   | 27/04/2026    |
 | 3   | - Học và thực hành aws cloudwatch workshop , viewing metrics , search và math expression , cloudwatch logs <br> triển khai hybrid dns với route 53 <br> Học và tìm hiểu về AWS CLI                             | 28/04/2026 | 28/04/2026      | <https://cloudjourney.awsstudygroup.com/>
 | 4   |- Tìm hiểu cách tạo và triển khai dịch vụ AWS Backup cho hệ thống, thiết lập kế hoạch sao lưu (backup plan), và cấu hình gửi thông báo về email. <br> ghiên cứu và thực hành cách nhập/xuất (import/export) máy ảo (VM) bằng cách sử dụng AWS S3 bucket và EC2 | 29/04/2026 | 29/04/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 5   | - Tìm hiểu và thực hành cách sử dụng docker container sử dụng các dịch vụ như Amazon ECR ,  RDS , EC2  <br>                  | 30/04/2026   | 30/04/2026      | <https://cloudjourney.awsstudygroup.com/> |
 | 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
 
