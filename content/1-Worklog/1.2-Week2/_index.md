@@ -18,7 +18,7 @@ pre: " <b> 1.2. </b> "
 | 3   | - Learn and practise aws cloudwatch workshop , viewing metrics , search and math expression , cloudwatch logs <br> set up hybrid dns with route 53 <br> learning and research about AWS CLI                             | 04/28/2026 | 04/28/2026      | <https://cloudjourney.awsstudygroup.com/> |
 | 4   |- learn how to create deploy aws backup to the system , backup plan , set up notification send to email <br> research and practise how to import/export VM using AWS S3 bucket , EC2 | 04/29/2026 | 04/29/2026      | <https://cloudjourney.awsstudygroup.com/> |
 | 5   | - Research and practise how to use docker container apply with AWS service like Amazon ECR ,  RDS , EC2                     | 04/30/2026 | 04/30/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - Tìm hiểu và thực hành cách triển khai ứng dụng trên Amazon ECS, tạo cluster, service, đăng ký namespace với Cloud Map <br> - Học và thực hành triển khai CI/CD với GitLab, GitHub Actions và AWS CodeBuild, cấu hình giám sát ứng dụng bằng Container Insights <br> - Tìm hiểu về AWS Security Hub <br> - Học cách cấu hình VPC Peering để kết nối các VPC với nhau <br> - Học cách thiết lập AWS Transit Gateway để kết nối nhiều VPC thay vì dùng VPC Peering                                                                  | 05/01/2026 | 05/01/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
 
 ### Week 2 Achievements:
