@@ -27,33 +27,35 @@ pre: " <b> 1.2. </b> "
 
 ### Kết quả đạt được tuần 2:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+- Mở rộng Nền tảng Máy chủ & Cân bằng tải
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+  + Nắm vững và thực hành thành công Amazon EC2 Auto Scaling, Elastic Load Balancing (ELB), và Launch Templates nhằm đảm bảo tính sẵn sàng cao cho hệ thống.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+- Lưu trữ & Cơ sở dữ liệu
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+  + Triển khai thành công trang web tĩnh (static web hosting) bằng Amazon S3 bucket.
+  + Thiết lập và quản lý cơ sở dữ liệu với Amazon RDS.
+  + Thực hiện thao tác nhập/xuất (import/export) máy ảo (VM) sử dụng Amazon S3 và EC2.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+- Giám sát Hệ thống & Mạng lưới Nâng cao
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+  + Giám sát hiệu suất hệ thống thông qua AWS CloudWatch (metrics, logs, math expressions) và Container Insights.
+  + Thiết lập thành công hệ thống Hybrid DNS sử dụng Amazon Route 53.
+  + Cấu hình kết nối mạng đa VPC thông qua VPC Peering và thiết lập AWS Transit Gateway.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+- Công cụ Quản lý & Sao lưu
+
+  + Thành thạo cách sử dụng AWS CLI để tương tác và quản lý tài nguyên AWS.
+  + Triển khai dịch vụ AWS Backup, thiết lập kế hoạch sao lưu (backup plan) tự động và cấu hình thông báo qua email.
+
+- Containerization & CI/CD
+
+  + Ứng dụng Docker container cùng với các dịch vụ Amazon ECR, RDS, và EC2.
+  + Triển khai ứng dụng trên Amazon ECS, bao gồm tạo cluster, service và đăng ký namespace với Cloud Map.
+  + Xây dựng luồng tích hợp và triển khai liên tục (CI/CD) bằng GitLab, GitHub Actions và AWS CodeBuild.
+
+- Bảo mật Đám mây
+
+  + Củng cố kiến thức về quản lý bảo mật tập trung trên AWS thông qua AWS Security Hub.
 
 

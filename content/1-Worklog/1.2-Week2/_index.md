@@ -23,31 +23,33 @@ pre: " <b> 1.2. </b> "
 
 ### Week 2 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+- Advanced Compute & Load Balancing
 
-* Successfully created and configured an AWS Free Tier account.
+  + Mastered and successfully practiced Amazon EC2 Auto Scaling, Elastic Load Balancing (ELB), and Launch Templates for high availability.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+- Storage & Database
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+  + Deployed a static website (static web hosting) using an Amazon S3 bucket.
+  + Set up and configured databases using Amazon RDS.
+  + Performed Virtual Machine (VM) import/export operations using Amazon S3 and EC2.
 
-* Used AWS CLI to perform basic operations such as:
+- System Monitoring & Advanced Networking
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+  + Monitored system performance and logs using AWS CloudWatch (metrics, logs, math expressions) and Container Insights.
+  + Successfully configured Hybrid DNS using Amazon Route 53.
+  + Established multi-VPC network connectivity by configuring VPC Peering and AWS Transit Gateway.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Management Tools & Backup
+
+  + Gained proficiency in using AWS CLI to interact with and manage AWS resources.
+  + Implemented AWS Backup strategies with automated backup plans and email notifications.
+
+- Containerization & CI/CD
+
+  + Containerized applications using Docker and integrated them with Amazon ECR, RDS, and EC2.
+  + Deployed and orchestrated applications on Amazon ECS with clusters, services, and AWS Cloud Map namespaces.
+  + Configured Continuous Integration and Continuous Deployment (CI/CD) pipelines using GitLab, GitHub Actions, and AWS CodeBuild.
+
+- Cloud Security
+
+  + Enhanced centralized security management knowledge by researching AWS Security Hub.
