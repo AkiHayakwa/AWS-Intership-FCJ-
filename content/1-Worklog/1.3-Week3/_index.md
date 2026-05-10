@@ -22,36 +22,32 @@ pre: " <b> 1.3. </b> "
 | 3   | -  Learning set up AWS Storage Gateway , create file share and connect to drive to my machine to synchronize data  <br> - practice how to set up aws web application firewall , deploy application to security using AWS WAF rule <br> - Create tag to organize resources and using aws resource groups manage and automate tasks                                      | 05/05/2026 | 05/05/2026      | <https://cloudjourney.awsstudygroup.com/> |
 | 4   | - Research and set up Grafana to monitor resources on AWS connect with cloudwatch <br> - Create IAM permission boundary and organization policy to manage cost optimization and security <br> Manage patch using run command on multiply servers  | 05/06/2026 | 05/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
 | 5   | - Learning and practise how to encrypt at rest with AWS KMS ,AWS CloudTrail and retrieving data using with Athena , sharing encypted data on S3 <br> - Learning how to calculate , view and usage cost by service                            | 05/07/2026 | 05/07/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - Get familiar with how to store, analyze, and transform data with Datalake. <br> - Learning set up and implement a  basic architecture using AWS CDK <br> - Learn how to use AWS Glue in conjunction with Athena to retrieve data and analyze costs and performance.                                                                            | 05/08/2026 | 05/08/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
 
 ### Week 3 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+- Serverless Computing & Deployment Automation
 
-* Successfully created and configured an AWS Free Tier account.
+  + Configured Lambda functions and EventBridge.
+  + Deployed applications to EC2 using AWS CodePipeline and CodeDeploy.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+- Security, Storage & Resource Management
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+  + Configured AWS Storage Gateway for hybrid data synchronization.
+  + Implemented AWS WAF rules to secure web applications.
+  + Organized resources effectively using tags and AWS Resource Groups.
+  + Established IAM Permission Boundaries and Organization Policies.
+  + Practiced data encryption at rest using AWS KMS and monitored activity with CloudTrail.
 
-* Used AWS CLI to perform basic operations such as:
+- Monitoring & Operations
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+  + Integrated Grafana with CloudWatch for robust resource monitoring.
+  + Managed patching across multiple servers using AWS Systems Manager (Run Command).
+  + Calculated and analyzed AWS service costs.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Data Engineering & Infrastructure as Code (IaC)
+
+  + Built a basic Data Lake architecture using AWS CDK.
+  + Used AWS Glue and Athena for data retrieval, transformation, and performance analysis.
+  + Shared encrypted data securely via Amazon S3.

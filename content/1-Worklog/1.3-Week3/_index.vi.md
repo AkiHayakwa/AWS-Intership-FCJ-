@@ -22,38 +22,32 @@ pre: " <b> 1.3. </b> "
 | 3   | - Học cách thiết lập AWS Storage Gateway, tạo file share và kết nối ổ đĩa với máy cá nhân để đồng bộ dữ liệu <br> - Thực hành thiết lập AWS Web Application Firewall, triển khai bảo mật ứng dụng sử dụng các quy tắc AWS WAF <br> - Tạo thẻ (tag) để tổ chức tài nguyên và sử dụng AWS Resource Groups để quản lý và tự động hóa các tác vụ | 05/05/2026  | 05/05/2026      | <https://cloudjourney.awsstudygroup.com/> |
 | 4   | - Nghiên cứu và cài đặt Grafana để giám sát tài nguyên trên AWS, kết nối với CloudWatch <br> - Tạo IAM Permission Boundary và Organization Policy để quản lý tối ưu chi phí và bảo mật <br> - Quản lý bản vá bằng lệnh Run Command trên nhiều máy chủ | 06/05/2026 | 06/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
 | 5   | - Học và thực hành cách mã hóa dữ liệu với AWS KMS, AWS CloudTrail và truy xuất dữ liệu bằng Athena, chia sẻ dữ liệu đã mã hóa trên S3 <br> - Tìm hiểu cách tính toán, xem chi tiết và sử dụng tính năng quản lý chi phí theo từng dịch vụ | 07/05/2026   | 07/05/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - Làm quen với cách lưu trữ, phân tích và chuyển đổi dữ liệu với Data Lake. <br> - Học cách thiết lập và triển khai kiến trúc cơ bản sử dụng AWS CDK <br> - Tìm hiểu cách sử dụng AWS Glue kết hợp với Athena để truy xuất dữ liệu, phân tích chi phí và hiệu suất. | 08/05/2026 | 08/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 
 ### Kết quả đạt được tuần 3:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+- Điện toán Máy chủ ảo (Serverless) & Tự động hóa Triển khai
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+  + Cấu hình các hàm Lambda và EventBridge.
+  + Triển khai ứng dụng lên EC2 bằng AWS CodePipeline và CodeDeploy.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+- Bảo mật, Lưu trữ & Quản lý Tài nguyên
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+  + Cấu hình AWS Storage Gateway để đồng bộ dữ liệu lai (hybrid).
+  + Triển khai các quy tắc AWS WAF để bảo vệ ứng dụng web.
+  + Tổ chức tài nguyên hiệu quả bằng tag (thẻ) và AWS Resource Groups.
+  + Thiết lập IAM Permission Boundaries và Organization Policies.
+  + Thực hành mã hóa dữ liệu (encrypt at rest) với AWS KMS và giám sát hoạt động bằng CloudTrail.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+- Giám sát & Vận hành Hệ thống
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+  + Tích hợp Grafana với CloudWatch để giám sát tài nguyên mạnh mẽ hơn.
+  + Quản lý bản vá lỗi trên nhiều máy chủ bằng AWS Systems Manager (Run Command).
+  + Tính toán và phân tích chi tiết chi phí sử dụng dịch vụ AWS.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+- Data Engineering & Infrastructure as Code (IaC)
 
-
+  + Xây dựng kiến trúc Data Lake cơ bản bằng AWS CDK.
+  + Sử dụng AWS Glue và Athena để truy xuất, chuyển đổi dữ liệu và phân tích hiệu suất.
+  + Chia sẻ dữ liệu đã mã hóa an toàn qua Amazon S3.
