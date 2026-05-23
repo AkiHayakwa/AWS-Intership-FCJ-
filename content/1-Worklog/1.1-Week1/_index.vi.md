@@ -8,8 +8,10 @@ pre: " <b> 1.1. </b> "
 
 ### Mục tiêu tuần 1:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Kết nối, làm quen với các thành viên và nội quy của First Cloud Journey.
+* Nắm vững các khái niệm cơ bản về điện toán đám mây và các nhóm dịch vụ cốt lõi của AWS.
+* Thiết lập hệ thống mạng VPC cơ bản, khởi tạo và quản trị máy chủ EC2 (Linux & Windows).
+* Tìm hiểu quản lý danh tính và quyền truy cập (IAM), thiết lập môi trường phát triển Cloud9 và cấu hình AWS CLI.
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |

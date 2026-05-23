@@ -10,8 +10,10 @@ pre: " <b> 1.3. </b> "
 
 ### Week 3 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Deploy automation and CI/CD workflows using AWS Lambda, EventBridge, CodePipeline, and CodeDeploy.
+* Manage hybrid storage with AWS Storage Gateway, secure applications using AWS WAF, and organize resources with Tags and Resource Groups.
+* Configure advanced monitoring with Grafana and CloudWatch, establish IAM Permission Boundaries, and manage patches using Systems Manager Run Command.
+* Practice data security with AWS KMS and CloudTrail, construct Data Lake architectures, and query data using AWS Glue and Athena.
 
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |

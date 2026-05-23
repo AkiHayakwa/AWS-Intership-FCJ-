@@ -9,8 +9,10 @@ pre: " <b> 1.2. </b> "
 
 ### Mục tiêu tuần 2:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Triển khai static web hosting trên S3, cấu hình Amazon RDS và thiết lập Auto Scaling, Elastic Load Balancing.
+* Nghiên cứu AWS CloudWatch, Hybrid DNS với Route 53, và quản lý sao lưu tự động với AWS Backup.
+* Container hóa ứng dụng với Docker, Amazon ECR/ECS, và xây dựng quy trình CI/CD qua GitLab/GitHub Actions/CodeBuild.
+* Thiết lập kết nối mạng nâng cao (VPC Peering, Transit Gateway) và quản lý bảo mật với AWS Security Hub.
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc                                                                                                                                                                               | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |

@@ -8,8 +8,10 @@ pre: " <b> 1.3. </b> "
 
 ### Mục tiêu tuần 3:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Triển khai tự động hóa và CI/CD với AWS Lambda, EventBridge, CodePipeline và CodeDeploy.
+* Quản lý lưu trữ lai với AWS Storage Gateway, bảo mật ứng dụng với AWS WAF và quản lý tài nguyên bằng thẻ (Tags) và Resource Groups.
+* Cấu hình giám sát nâng cao với Grafana/CloudWatch, thiết lập quyền hạn qua IAM Permission Boundary và quản lý bản vá với Systems Manager.
+* Thực hành bảo mật dữ liệu với AWS KMS, CloudTrail, thiết lập Data Lake và sử dụng AWS Glue, Athena để truy vấn dữ liệu.
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |

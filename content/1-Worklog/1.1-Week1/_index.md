@@ -8,8 +8,10 @@ pre: " <b> 1.1. </b> "
 
 ### Week 1 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Connect and get acquainted with members and rules of First Cloud Journey.
+* Understand basic cloud computing concepts and core AWS service categories (Compute, Storage, Networking, Database).
+* Design and provision custom VPC networks, and launch and manage EC2 instances (Linux & Windows).
+* Learn Identity and Access Management (IAM) and configure development environments using AWS Cloud9 and AWS CLI.
 
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |

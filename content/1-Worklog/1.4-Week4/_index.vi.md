@@ -9,8 +9,10 @@ pre: " <b> 1.4. </b> "
 
 ### Mục tiêu tuần 4:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Triển khai ứng dụng web Java (TravelBuddy) lên Elastic Beanstalk và tìm hiểu các dịch vụ CI/CD tự động hóa trên AWS.
+* Phát triển các hàm AWS Lambda xử lý sự kiện S3, tự động hóa hạ tầng không máy chủ với SAM và CloudFormation.
+* Tương tác với cơ sở dữ liệu Amazon DynamoDB sử dụng AWS SDK cho Java và thiết kế quy trình xử lý dữ liệu với Step Functions.
+* Tìm hiểu các phương thức truyền tin (Messaging), phân biệt hàng chờ (Queue) với luồng dữ liệu (Stream), và xây dựng kênh pub/sub qua Amazon Kinesis.
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |

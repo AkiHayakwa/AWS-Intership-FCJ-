@@ -8,8 +8,10 @@ pre: " <b> 1.2. </b> "
 
 ### Week 2 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Deploy static web hosting on S3, configure Amazon RDS, and set up Auto Scaling and Elastic Load Balancing.
+* Study AWS CloudWatch, Hybrid DNS with Route 53, and manage automated backups with AWS Backup.
+* Containerize applications using Docker and Amazon ECR/ECS, and build CI/CD pipelines via GitLab, GitHub Actions, and AWS CodeBuild.
+* Establish advanced network connections (VPC Peering, Transit Gateway) and manage security using AWS Security Hub.
 
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |

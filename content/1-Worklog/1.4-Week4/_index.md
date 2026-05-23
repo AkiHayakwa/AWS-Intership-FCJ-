@@ -8,8 +8,10 @@ pre: " <b> 1.4. </b> "
 
 ### Week 4 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Deploy Java web applications (TravelBuddy) to Elastic Beanstalk and master automated CI/CD services on AWS.
+* Develop AWS Lambda functions processing S3 events, and automate serverless infrastructure using SAM and CloudFormation templates.
+* Interact with Amazon DynamoDB tables using the AWS SDK for Java, and orchestrate workflows using AWS Step Functions.
+* Understand messaging patterns, distinguish between queues and streams, and construct pub/sub channels via Amazon Kinesis.
 
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
