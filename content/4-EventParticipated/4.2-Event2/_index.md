@@ -1,126 +1,83 @@
 ---
 title: "Event 2"
-date: 2024-01-01
-weight: 1
+date: 2026-05-30
+weight: 2
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
-
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+# Summary Report: "First Cloud AI Journey - AWS Community Day"
 
 ### Event Objectives
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+- Share practical experiences on the AWS learning path for beginners.
+- Discuss psychological barriers such as procrastination and fear in one's career.
+- Introduce tools that support AWS development and practice at no cost.
+- Analyze the DevOps model and the importance of systems thinking.
+- Share experiences of participating in Hackathons to build real-world products.
 
 ### Speakers
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+- **Tran Minh Quan** - Speaker on DevOps and systems thinking.
+- **Huynh Thai Linh** - Speaker on Cloud Quest and Floci path.
+- **Nguyen Thi Quynh Nhu** - Speaker on the power of self-confidence.
+- **Khac Uy Pham** - Speaker on psychology in procrastination.
+- **The Ballers Group** (Huynh An Khuong, Mai Quoc Anh, Nguyen Tran Minh Quan) - Sharing Hackathon experiences.
 
 ### Key Highlights
 
-#### Identifying the drawbacks of legacy application architecture
+#### The Iceberg Model in Project Management & DevOps
+- **Surface symptoms**: Missed deadlines, product bugs, burnout.
+- **Root causes**: Lack of communication, manual processes, lack of accountability.
+- **DevOps Mindset**: Not just tools (Docker, K8s) but a combination of People, Process, and Technology.
+- **Core pillars**: Shared responsibility, automation (IaC, CI/CD), fast feedback, and continuous improvement.
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+#### AWS Hands-on Practice Roadmap for Beginners
+- **Challenges**: Fear of AWS bills, forgetting to delete resources.
+- **Solutions**:
+  - **AWS Cloud Quest**: Gamified learning with detailed step-by-step guidance.
+  - **Open Source Floci**: A local AWS service emulator that is faster and more memory-efficient than LocalStack.
+- **3-Phase Roadmap**: Mindset/Architecture (Cloud Quest) → Fast Coding/Testing (Floci) → Real Deployment (Real AWS).
 
-#### Transitioning to modern application architecture – Microservices
+#### Psychology in Learning and Work
+- **The Procrastination Iceberg**: 70-80% of causes stem from fear (fear of not being good enough, fear of judgment, fear of failure) rather than laziness.
+- **Imposter Syndrome**: Feeling undeserving of achieved accomplishments.
+- **Overcoming Techniques**: The 5-Second Rule (5-4-3-2-1 to act), naming the fear, and the principle "Action breeds confidence."
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
-
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
-
-#### Domain-Driven Design (DDD)
-
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
-
-#### Event-Driven Architecture
-
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
-
-#### Amazon Q Developer
-
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+#### Real-world Hackathon Experience
+- **36-Hour Process**: From brainstorming, building an MVP to pitching under high pressure.
+- **Featured Projects**:
+  - **SynthHunter**: AI voice authentication system.
+  - **Vortex**: Connecting the recruitment journey from CV screening to interview.
+- **Lessons Learned**: Good ideas come from solving real pain points; trust among team members is more important than individual skills.
 
 ### Key Takeaways
 
-#### Design Mindset
+#### Design & Management Mindset
+- **Systems Thinking**: Focusing on finding the root cause instead of just treating the symptoms.
+- **AWS Builder Philosophy**: "Go Build" - Fail fast, learn faster, continuously deliver products to market.
+- **Confidence as a Bridge**: Technical skills are the foundation, but confidence helps convey that value to others.
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
-
-#### Technical Architecture
-
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
-
-#### Modernization Strategy
-
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+#### Tech & Tools
+- How to use **Floci** to test AWS architectures without cost.
+- The importance of **Automation** and **Infrastructure as Code (IaC)** in minimizing human errors.
+- Leveraging **AI (Claude, Bedrock)** as a team member to speed up development.
 
 ### Applying to Work
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+- Applying the 5-minute rule to start difficult tasks instead of procrastinating.
+- Using **Cloud Quest** to systematically upgrade AWS skills.
+- Building a culture of shared responsibility and improving team communication to break down "silos".
+- Testing small projects (MVP) with a Hackathon mindset to optimize development time.
 
 ### Event Experience
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+Participating in this meetup brought many emotions and practical knowledge:
+- Understanding that everyone has fears and insecurities; the key is to take action despite that fear.
+- Connecting with senior colleagues, gaining a better understanding of the actual work environment at AWS and tech businesses.
+- Being inspired by the stories of overcoming hardship and continuous efforts of the student speakers.
+- The event completely changed my preconceptions about "laziness" and gave me a more realistic view of the roadmap to becoming a professional Cloud/DevOps Engineer.
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+#### Event Photos
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
-
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
-
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
-
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
-
-#### Some event photos
-*Add your event photos here*  
-
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+> Overall, the event brought great motivation, not only helping to accumulate more knowledge about cloud technology and AI, but also helping to strengthen spirit, build soft skills, and resolve psychological bottlenecks on the path of professional Cloud/DevOps Engineer career development.
