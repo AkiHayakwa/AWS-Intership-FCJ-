@@ -1,126 +1,117 @@
 ---
-title: "Blog 2"
+title: "Simplify AWS AppSync Events Integration with Powertools for AWS Lambda"
 date: 2024-01-01
-weight: 1
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# Simplify AWS AppSync Events Integration with Powertools for AWS Lambda
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+Real-time capabilities have become essential in modern applications, where users expect immediate updates and interactive experiences. Whether you’re building chat applications, live dashboards, gaming leaderboards, or IoT systems, AWS AppSync Events enables these real-time features through WebSocket APIs, allowing you to build scalable and performant real-time applications without worrying about connection management or scaling infrastructure.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+However, integrating AWS AppSync Events into serverless architectures, specifically handling events in AWS Lambda, often introduces challenges regarding payload serialization, event routing, and batch error handling. To streamline this process, the **Powertools for AWS Lambda** toolkit introduced the `AppSyncEventsResolver` utility, removing the need for boilerplate code and simplifying the development workflow.
 
 ---
 
-## Architecture Guidance
+## The Role of Powertools for AWS Lambda
 
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
+**Powertools for AWS Lambda** is a developer toolkit designed to optimize serverless development. It provides essential utilities for Logging, Tracing, Metrics, and Event Handling.
 
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+With the addition of `AppSyncEventsResolver`, Powertools now offers a clean, consistent interface for processing AppSync Events in Lambda functions. It handles the undifferentiated heavy lifting—parsing events, routing them to the correct handler based on patterns, and formatting the response to conform to AppSync expectations—enabling developers to focus entirely on core business logic.
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+## Core Features of AppSyncEventsResolver
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+`AppSyncEventsResolver` is built to resolve common event processing patterns in real-time applications:
 
----
+### 1. Pattern-based Routing
+Instead of writing complex conditional blocks (such as `if-else` or `switch-case`) to manually route events depending on their destination channel, the resolver routes events automatically based on the namespace and channel path pattern.
 
-## Technology Choices and Communication Scope
+### 2. Wildcard Support
+You can register catch-all handlers using wildcards (e.g., `/default/*`). The resolver automatically matches child channels and forwards incoming events to the registered handler.
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+### 3. Automatic Response Formatting
+AWS AppSync Events expects responses from Lambda functions to adhere to specific structures for connection authorization and event acknowledgement. `AppSyncEventsResolver` automatically generates this response envelope behind the scenes, allowing you to simply return your payload.
+
+### 4. Batch Processing & Error Handling
+When processing multiple messages in a single batch request, the resolver supports sequential or parallel execution. It also provides granular, built-in error handling at the individual message level, ensuring successful messages are acknowledged even if one message in the batch fails.
 
 ---
 
-## The Pub/Sub Hub
+## Installation & Setup
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+`AppSyncEventsResolver` is supported across the major Powertools for AWS Lambda languages: **Python**, **TypeScript**, and **.NET**.
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+### Package Installation:
 
----
-
-## Core Microservice
-
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
-
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+* **TypeScript / Node.js**:
+  ```bash
+  npm install @aws-lambda-powertools/event-handler
+  ```
+* **Python**:
+  ```bash
+  pip install aws-lambda-powertools
+  ```
 
 ---
 
-## Front Door Microservice
+## Implementation Code Examples
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+### 1. TypeScript Implementation
+
+Here is how to set up publish event handlers in TypeScript using the resolver:
+
+```typescript
+import { AppSyncEventsResolver } from '@aws-lambda-powertools/event-handler/appsync-events';
+
+const app = new AppSyncEventsResolver();
+
+
+app.onPublish('/default/chat', async (payload) => {
+    console.log('Received chat payload:', payload);
+    return payload; 
+});
+
+
+app.onPublish('/notifications/*', async (payload) => {
+    console.log('Received system notification:', payload);
+    return { status: 'notification_sent' };
+});
+
+export const handler = async (event: any, context: any) => {
+    return app.resolve(event, context);
+};
+```
+
+### 2. Python Implementation
+
+In Python, you can utilize decorators to cleanly register handlers for different channels and actions:
+
+```python
+from aws_lambda_powertools.event_handler import AppSyncEventsResolver
+
+app = AppSyncEventsResolver()
+
+
+@app.on_publish(path="/default/chat")
+def handle_chat(payload):
+    print(f"Received chat payload: {payload}")
+    return {"status": "success", "message": payload}
+
+
+@app.on_subscribe(path="/default/chat")
+def handle_subscribe(payload):
+    print(f"User subscribed to chat channel: {payload}")
+    return {"authorized": True}
+
+def lambda_handler(event, context):
+    return app.resolve(event, context)
+```
 
 ---
 
-## Staging ER7 Microservice
+## Conclusion
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
-
----
-
-## New Features in the Solution
-
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+Building large-scale, real-time serverless systems has never been easier. By combining the high scalability of **AWS AppSync Events** with the routing and standardizing capabilities of **Powertools for AWS Lambda**, developers can deploy clean, secure, and highly maintainable WebSocket APIs with minimal effort.
