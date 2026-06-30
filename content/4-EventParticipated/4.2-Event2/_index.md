@@ -78,6 +78,4 @@ Participating in this meetup brought many emotions and practical knowledge:
 - Being inspired by the stories of overcoming hardship and continuous efforts of the student speakers.
 - The event completely changed my preconceptions about "laziness" and gave me a more realistic view of the roadmap to becoming a professional Cloud/DevOps Engineer.
 
-#### Event Photos
 
-> Overall, the event brought great motivation, not only helping to accumulate more knowledge about cloud technology and AI, but also helping to strengthen spirit, build soft skills, and resolve psychological bottlenecks on the path of professional Cloud/DevOps Engineer career development.

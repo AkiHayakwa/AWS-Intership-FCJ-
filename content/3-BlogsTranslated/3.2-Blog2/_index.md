@@ -1,5 +1,5 @@
 ---
-title: "Simplify AWS AppSync Events Integration with Powertools for AWS Lambda"
+title: "Blog 2: Simplify AWS AppSync Events Integration with Powertools for AWS Lambda"
 date: 2024-01-01
 weight: 2
 chapter: false
@@ -24,7 +24,19 @@ With the addition of `AppSyncEventsResolver`, Powertools now offers a clean, con
 
 ## Core Features of AppSyncEventsResolver
 
-`AppSyncEventsResolver` is built to resolve common event processing patterns in real-time applications:
+`AppSyncEventsResolver` is built to resolve common event processing patterns in real-time applications. The diagram below illustrates how WebSocket events from AWS AppSync are routed to different handlers inside the Lambda function:
+
+```mermaid
+graph LR
+    AppSync[AWS AppSync Events] -- WebSocket Event --> Lambda[AWS Lambda]
+    subgraph Lambda Function
+        Resolver[AppSyncEventsResolver] -- Match /default/chat --> ChatHandler[Chat Handler]
+        Resolver -- Match /notifications/* --> NotifyHandler[Notification Handler]
+    end
+    ChatHandler --> Respond[Return Chat Payload]
+    NotifyHandler --> Respond
+    Respond --> AppSync
+```
 
 ### 1. Pattern-based Routing
 Instead of writing complex conditional blocks (such as `if-else` or `switch-case`) to manually route events depending on their destination channel, the resolver routes events automatically based on the namespace and channel path pattern.

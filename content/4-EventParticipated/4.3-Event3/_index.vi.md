@@ -98,4 +98,4 @@ Tham gia buổi Meetup ngày Jun 06, 2026 là một hành trình học tập đa
 - Công nghệ chỉ là công cụ, tư duy thiết kế đúng đắn và sự kiên trì trong việc thực hành mới là yếu tố quyết định thành công.
 - Việc hiện đại hóa ứng dụng thông qua Docker và Serverless giúp doanh nghiệp tăng tốc độ ra mắt sản phẩm và giảm thiểu rủi ro vận hành.
 
-> Tổng thể, sự kiện đã mang lại một bức tranh toàn cảnh về hệ sinh thái AWS và cách các công nghệ như AI, Container và WebSockets đang thay đổi cách chúng ta xây dựng phần mềm.
+

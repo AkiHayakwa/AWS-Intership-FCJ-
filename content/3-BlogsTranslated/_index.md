@@ -15,14 +15,5 @@ This blog post explores how Amazon's "Your Orders" team improved the order histo
 ###  [Blog 2 - Simplify AWS AppSync Events Integration with Powertools for AWS Lambda](3.2-Blog2/)
 This blog post introduces the use of AppSyncEventsResolver in Powertools for AWS Lambda to handle real-time events from AWS AppSync. Developers will learn how to simplify the integration process, configure pattern-based and wildcard routing, automatically format AppSync-compliant responses, and gracefully handle batch errors to reduce boilerplate code in Serverless applications.
 
-###  [Blog 3 - ...](3.3-Blog3/)
-This blog introduces how to start building a data lake in the healthcare sector by applying a microservices architecture. You will learn why data lakes are important for storing and analyzing diverse healthcare data (electronic medical records, lab test data, medical IoT devices…), how microservices help make the system more flexible, scalable, and easier to maintain. The article also guides you through the steps to set up the environment, organize the data processing pipeline, and ensure compliance with security & privacy standards such as HIPAA.
-
-###  [Blog 4 - ...](3.4-Blog4/)
-This blog introduces how to start building a data lake in the healthcare sector by applying a microservices architecture. You will learn why data lakes are important for storing and analyzing diverse healthcare data (electronic medical records, lab test data, medical IoT devices…), how microservices help make the system more flexible, scalable, and easier to maintain. The article also guides you through the steps to set up the environment, organize the data processing pipeline, and ensure compliance with security & privacy standards such as HIPAA.
-
-###  [Blog 5 - ...](3.5-Blog5/)
-This blog introduces how to start building a data lake in the healthcare sector by applying a microservices architecture. You will learn why data lakes are important for storing and analyzing diverse healthcare data (electronic medical records, lab test data, medical IoT devices…), how microservices help make the system more flexible, scalable, and easier to maintain. The article also guides you through the steps to set up the environment, organize the data processing pipeline, and ensure compliance with security & privacy standards such as HIPAA.
-
-###  [Blog 6 - ...](3.6-Blog6/)
-This blog introduces how to start building a data lake in the healthcare sector by applying a microservices architecture. You will learn why data lakes are important for storing and analyzing diverse healthcare data (electronic medical records, lab test data, medical IoT devices…), how microservices help make the system more flexible, scalable, and easier to maintain. The article also guides you through the steps to set up the environment, organize the data processing pipeline, and ensure compliance with security & privacy standards such as HIPAA.
+###  [Blog 3 - Amazon S3 Audit Logging ](3.3-Blog3/)
+This blog post is Part 2 of a series on Amazon S3 audit logging, focusing on identity-driven security investigations using AWS CloudTrail data events and Amazon Athena. It covers setting up organization-wide CloudTrail data plane logging, creating optimized Athena tables with partition projection, and running key query patterns to audit user activity, cross-account access, and failed actions.

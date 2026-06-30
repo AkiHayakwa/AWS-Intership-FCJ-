@@ -78,6 +78,3 @@ Tham gia meetup lần này mang lại nhiều cảm xúc và kiến thức thự
 - Được truyền cảm hứng từ những câu chuyện "vượt sướng" và nỗ lực không ngừng của các diễn giả sinh viên.
 - Sự kiện đã thay đổi hoàn toàn định kiến về "lười biếng" và giúp tôi có cái nhìn thực tế hơn về lộ trình trở thành một Cloud Engineer/DevOps chuyên nghiệp.
 
-#### Một số hình ảnh khi tham gia sự kiện
-
-> Nhìn chung, sự kiện mang lại động lực rất lớn, không chỉ giúp tích lũy thêm các kiến thức về mặt công nghệ đám mây và AI, mà còn giúp củng cố tinh thần, xây dựng kỹ năng mềm, giải quyết những nút thắt tâm lý trên con đường phát triển sự nghiệp Cloud Engineer/DevOps chuyên nghiệp.

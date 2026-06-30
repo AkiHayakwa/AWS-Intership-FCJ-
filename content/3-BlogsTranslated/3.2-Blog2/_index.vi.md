@@ -1,5 +1,5 @@
 ---
-title: "Đơn giản hóa tích hợp AWS AppSync Events bằng Powertools cho AWS Lambda"
+title: "Blog 2: Đơn giản hóa tích hợp AWS AppSync Events bằng Powertools cho AWS Lambda"
 date: 2024-01-01
 weight: 2
 chapter: false
@@ -25,7 +25,19 @@ Với việc bổ sung `AppSyncEventsResolver`, Powertools giờ đây cung cấ
 
 ## Các tính năng cốt lõi của AppSyncEventsResolver
 
-`AppSyncEventsResolver` được thiết kế để giải quyết các mô hình thiết kế xử lý sự kiện phổ biến trong ứng dụng real-time:
+`AppSyncEventsResolver` được thiết kế để giải quyết các mô hình thiết kế xử lý sự kiện phổ biến trong ứng dụng real-time. Sơ đồ bên dưới minh họa cách định tuyến các sự kiện WebSocket từ AWS AppSync đến các hàm xử lý tương ứng trong Lambda:
+
+```mermaid
+graph LR
+    AppSync[AWS AppSync Events] -- WebSocket Event --> Lambda[AWS Lambda]
+    subgraph Lambda Function
+        Resolver[AppSyncEventsResolver] -- Match /default/chat --> ChatHandler[Chat Handler]
+        Resolver -- Match /notifications/* --> NotifyHandler[Notification Handler]
+    end
+    ChatHandler --> Respond[Return Chat Payload]
+    NotifyHandler --> Respond
+    Respond --> AppSync
+```
 
 ### 1. Định tuyến dựa trên Pattern (Pattern-based Routing)
 Thay vì sử dụng các cấu trúc điều kiện phức tạp (như `if-else` hoặc `switch-case`) để kiểm tra thủ công xem sự kiện thuộc kênh (channel) nào, resolver cho phép bạn định tuyến tự động dựa trên không gian tên (namespace) và đường dẫn kênh.

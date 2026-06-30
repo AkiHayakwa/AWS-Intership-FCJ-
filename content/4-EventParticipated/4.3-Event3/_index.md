@@ -6,9 +6,6 @@ chapter: false
 pre: " <b> 4.3. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
 
 # Summary Report: “First Cloud Journey Meetup - June 2026”
 
@@ -101,4 +98,4 @@ Participating in the Meetup on June 06, 2026 was a multidimensional learning jou
 - Technology is only a tool; correct design thinking and persistence in hands-on practice are the keys to success.
 - Modernizing applications through Docker and Serverless helps businesses accelerate time-to-market and reduce operational risks.
 
-> Overall, the event provided a comprehensive picture of the AWS ecosystem and how technologies like AI, Containers, and WebSockets are transforming software development.
+
