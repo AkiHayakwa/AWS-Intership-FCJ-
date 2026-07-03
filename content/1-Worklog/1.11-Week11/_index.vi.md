@@ -12,48 +12,47 @@ pre: " <b> 1.11. </b> "
 
 ### Mục tiêu tuần 11:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Thực hiện vai trò **API Contract QA** trong dự án **CloudBrief** — hệ thống thu thập & tóm tắt tin tức công nghệ tự động trên AWS.
+* Viết bộ kiểm thử tự động (unit tests, integration tests), xây dựng Postman collection phục vụ demo.
+* Rà soát bảo mật (SSRF, XXE, XSS, API Key leakage) và hoàn thiện tài liệu API.
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
 | 2   | - Lab 3: Transforming data with Glue: <br>&emsp; + Data Validation và ETL: Sử dụng AWS Glue để làm sạch, kiểm tra và chuyển đổi dữ liệu. <br>&emsp; + Incremental Data Processing với Hudi: Áp dụng Apache Hudi xử lý dữ liệu thay đổi (upsert/delete) trên S3. <br> - Lab 4: Query và Visualize: <br>&emsp; + Phân tích dữ liệu: Truy vấn dữ liệu S3 bằng Amazon Athena và tạo Dashboard trực quan bằng QuickSight. <br>&emsp; + Athena nâng cao: Sử dụng Federated query để truy cập đa nguồn và kết nối với SageMaker để dự đoán. | 29/06/2026   | 29/06/2026      | https://cloudjourney.awsstudygroup.com/>  |
 | 3   | - Lab 5: Data Lake Automation: <br>&emsp; + Lake Formation cơ bản: Đăng ký data lake location, thiết lập Data Catalog và cấp quyền truy cập. <br>&emsp; + Áp dụng Lake Formation: Quản lý quyền cho các định dạng dữ liệu mở như Apache Hudi, Iceberg, Delta Tables. <br> - Bonus Lab: Glue DataBrew: <br>&emsp; + Sử dụng Glue DataBrew để làm sạch và chuẩn bị dữ liệu (Data Preparation) thông qua giao diện trực quan. | 30/06/2026   | 30/06/2026      | https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 4   | <br>&emsp; + Cài đặt Bun 1.3.x, chạy `bun install`, `bun run build`, `bun run test` thành công <br>&emsp; + Copy `backend/.env.example` → `backend/.env` <br>&emsp; + Trao đổi với team (`ReinaMacCredy`, `RyugaRuki`) thống nhất toàn bộ route `/api/v1/*`, JSON schema, định nghĩa trạng thái bài viết (`PENDING_CONTENT`, `CONTENT_FAILED`, `SUMMARY_FAILED`, `SUMMARIZED`) <br>&emsp; + Review `contracts/src/index.ts`, `frontend/lib/cloudbrief-mocks.ts`, `backend/src/app/routes/v1.ts` | 01/07/2026   | 01/07/2026      | PR #13 — CloudBrief repo |
+| 5   | <br>&emsp; + `apiKey.test.ts`: Test SHA-256 hash, constant-time comparison, reject key thiếu/sai → 401, không log plaintext key <br>&emsp; + `apiRoutes.test.ts`: Test 400 Bad Request, public routes không cần key, origin secret header → reject ở production mode <br>&emsp; + `apiV1Routes.test.ts`: Test toàn bộ `/api/v1/*` public routes + admin session/CSRF flow <br>&emsp; + `rssClient.test.ts`: Xác nhận parser XML tắt DTD & External Entity (chống XXE) <br>&emsp; + `dedupe.test.ts`: Test canonical URL hash & title hash, chặn collect URL trùng <br>&emsp; + `localPayloads.test.ts`: Test state transitions & retry logic (`CONTENT_FAILED`/`SUMMARY_FAILED` → reset; `SUMMARIZED` → 409; vượt `MAX_RETRY_COUNT` → 409) <br>&emsp; + Xây dựng `CloudBrief_API_Tests.postman_collection.json` với đầy đủ endpoint, placeholder `{{API_KEY}}`, `{{CSRF_TOKEN}}` → **51/51 tests pass** | 02/07/2026   | 02/07/2026      | PR #13 — CloudBrief repo |
+| 6   | <br>&emsp; + Chạy toàn bộ test suite sau khi team merge code → **53/53 tests pass** <br>&emsp; + Security Audit: xác nhận `.env`/`cdk.context.json` trong `.gitignore`, không có plaintext API key trong response/log <br>&emsp; + Xác nhận safe-fetch chống SSRF: pin IP sau DNS resolve, chặn redirect > 3, chặn IP nội bộ/IMDS `169.254.169.254` <br>&emsp; + Xác nhận Dashboard chống XSS: hiển thị summary qua text encoding, không dùng `innerHTML` <br>&emsp; + Xác nhận Origin Secret Header reject request không hợp lệ ở production mode <br>&emsp; + Cập nhật `docs/api.md` khớp 100% với `/api/v1` routes đã implement, tách biệt deployed-only cases | 03/07/2026   | 03/07/2026      | PR #13 — CloudBrief repo |
 
 
 ### Kết quả đạt được tuần 11:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Nắm vững kiến trúc hệ thống CloudBrief trên AWS:
+  * EC2 (ARM64 `t4g.small`) chạy API server + worker processes
+  * Amazon DynamoDB lưu trữ bài viết và dedupe records
+  * Amazon S3 lưu file nội dung thuần `.txt` và frontend tĩnh
+  * Amazon SQS làm queue trung gian giữa các worker
+  * Amazon Bedrock Nova Lite cho tóm tắt AI
+  * CloudFront làm CDN và reverse proxy duy nhất
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Viết và vận hành bộ kiểm thử tự động bao gồm:
+  * Unit tests: `apiKey`, `apiRoutes`, `apiV1Routes`, `rssClient`, `dedupe`
+  * Integration tests: `localPayloads` (state transitions & retry logic)
+  * Tất cả chạy được **local** mà không cần AWS deploy thật
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Xây dựng Postman Collection đầy đủ cho buổi demo:
+  * Bao gồm tất cả public routes và admin routes
+  * Sử dụng placeholder `{{API_KEY}}`, `{{CSRF_TOKEN}}` (không commit secret thật)
+  * Có ghi chú rõ các case cần môi trường AWS thật (deployed-only)
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Thực hiện Security Audit và xác nhận hệ thống an toàn với:
+  * Chống SSRF (safe-fetch với IP pinning, chặn IMDS `169.254.169.254`)
+  * Chống XXE (tắt DTD và External Entity trong RSS parser)
+  * Chống XSS (Dashboard dùng text encoding, không dùng `innerHTML`)
+  * Không rò rỉ API key trong response, log hay frontend assets
+  * Origin Secret Header bảo vệ EC2 khỏi bypass CloudFront
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Hoàn thiện `docs/api.md` khớp 100% với `/api/v1` routes đã implement.
 
 
