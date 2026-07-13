@@ -1,5 +1,6 @@
 ---
 title: "Blog 2: Đơn giản hóa tích hợp AWS AppSync Events bằng Powertools cho AWS Lambda"
+author: "Phạm Anh Hào"
 date: 2024-01-01
 weight: 2
 chapter: false
@@ -129,3 +130,5 @@ def lambda_handler(event, context):
 ## Kết luận
 
 Việc tích hợp các tính năng thời gian thực (real-time) quy mô lớn giờ đây trở nên vô cùng đơn giản và đáng tin cậy. Bằng cách kết hợp khả năng chịu tải vượt trội của **AWS AppSync Events** cùng tính năng định tuyến, chuẩn hóa của **Powertools for AWS Lambda**, lập trình viên có thể xây dựng các hệ thống serverless WebSocket một cách nhanh chóng, bảo mật và sạch sẽ nhất.
+
+**Link tham khảo:** [https://www.facebook.com/share/p/1BS1nG91UA/](https://www.facebook.com/share/p/1BS1nG91UA/)

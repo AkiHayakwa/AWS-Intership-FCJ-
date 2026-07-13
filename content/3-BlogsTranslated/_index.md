@@ -6,9 +6,6 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-
-This section will list and introduce the blogs you have translated. For example:
-
 ###  [Blog 1 - Improving Order History Search using Semantic Search with Amazon OpenSearch Service](3.1-Blog1/)
 This blog post explores how Amazon's "Your Orders" team improved the order history search experience by introducing semantic search capabilities on top of their existing lexical search system, utilizing Amazon OpenSearch Service and Amazon SageMaker. It covers the technical challenges, cell-based architecture for resiliency, and the implementation of hybrid search.
 

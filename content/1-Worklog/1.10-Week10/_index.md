@@ -23,31 +23,25 @@ pre: " <b> 1.10. </b> "
 
 ### Week 10 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* **Patching Automation and Blue/Green Deployment for AMIs:**
+  * Understood the importance of OS patching for system security strategy and compliance.
+  * Mastered the blue/green deployment methodology for creating and replacing AMIs without service disruption.
+  * Studied and implemented patching automation using AWS services: EC2 Image Builder (for automated AMI creation), Systems Manager (SSM) Automation Document (for orchestration), and CloudFormation with AutoScalingReplacingUpdate policy (for graceful deployment).
 
-* Successfully created and configured an AWS Free Tier account.
+* **Disaster Recovery Implementation with AWS Elastic Disaster Recovery (AWS DRS):**
+  * Grasped the fundamental concepts of Disaster Recovery (DR), including RTO (Recovery Time Objective), RPO (Recovery Point Objective), cost-efficiency, and point-in-time recovery.
+  * Understood AWS DRS architecture: replication of source server disks, deploying replication agents, replication servers in the staging area VPC, and launching target recovery instances.
+  * Successfully connected to Linux source servers via SSH and Windows bastion server via RDP.
+  * Installed the AWS Replication Agent on simulated on-premises source servers and configured replication settings in the AWS DRS console.
+  * Successfully performed critical disaster recovery operations: non-disruptive tests (running drills), Failover (recovering applications to the target VPC), and Failback (reversing the replication direction back to the source).
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* **Real-time Data Streaming and Analytics (Data Engineering Immersion Day - Lab 1):**
+  * Provisioned the required data infrastructure resources including Amazon S3, Kinesis Streams, and IAM Roles.
+  * Built a Streaming ETL pipeline with AWS Glue by creating a Data Catalog and setting up a Glue ETL Job for real-time data transformation.
+  * Implemented real-time streaming by producing and feeding simulated clickstream data into Amazon Kinesis.
+  * Analyzed clickstream events and detected anomalies using Amazon Managed Streaming for Apache Kafka (Amazon MSK) and Amazon Managed Service for Apache Flink.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* **Data Ingestion and Migration with AWS DMS (Lab 2):**
+  * Understood and practiced database migration workflows using AWS Database Migration Service (AWS DMS).
+  * Provisioned a Replication Instance, configured Source and Target Endpoints, and executed Database Migration Tasks (or automated the process using CloudFormation).
 
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...

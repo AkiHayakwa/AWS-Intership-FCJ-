@@ -68,3 +68,5 @@ Participating in the meetup was an inspiring and educational journey:
 - **AWS Architecture Demo**: Seeing a live serverless integration with Cognito and Bedrock made advanced concepts tangible.
 - **Community Spirit**: Met highly supportive mentors and peers, gaining valuable career guidance in the cloud computing field.
 
+![FCAJ Community Day - May 2026](z8021892289219_189270250e0afe76429da5f1b004ee76.jpg)
+

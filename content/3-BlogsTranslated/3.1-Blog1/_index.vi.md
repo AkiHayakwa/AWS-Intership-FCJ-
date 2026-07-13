@@ -1,13 +1,11 @@
 ---
 title: "Blog 1: Cải thiện tìm kiếm lịch sử đơn hàng"
+author: "Phạm Anh Hào"
 date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
 # Cải thiện tìm kiếm lịch sử đơn hàng bằng Tìm kiếm ngữ nghĩa với Amazon OpenSearch Service
 
@@ -140,3 +138,5 @@ Bằng cách đưa khả năng tìm kiếm ngữ nghĩa vào lịch sử đơn h
 Để bắt đầu xây dựng ứng dụng tìm kiếm ngữ nghĩa của riêng bạn, bạn có thể tham khảo:
 * [Tìm kiếm exact k-NN trong OpenSearch](https://docs.opensearch.org/latest/vector-search/vector-search-techniques/knn-score-script/)
 * [Tài liệu hướng dẫn phát triển Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/gsg.html)
+
+**Link tham khảo:** [https://www.facebook.com/share/p/191tDRSXB7/](https://www.facebook.com/share/p/191tDRSXB7/)

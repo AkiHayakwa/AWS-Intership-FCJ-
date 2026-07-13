@@ -1,5 +1,6 @@
 ---
 title: "Blog 3: Ghi nhật ký kiểm tra Amazon S3 – Phần 2: Phân tích và ghi nhật ký tập trung"
+author: "Đinh Tuấn Minh"
 date: 2024-01-01
 weight: 3
 chapter: false
@@ -160,3 +161,5 @@ ORDER BY eventtime DESC;
 ## Kết luận
 
 Việc tập trung hóa S3 data events qua CloudTrail cung cấp ngữ cảnh định danh vô cùng quan trọng cho công tác bảo mật và tuân thủ. Bằng cách kết hợp với Athena partition projection, bạn có thể thực hiện các cuộc điều tra bảo mật hiệu quả và tối ưu chi phí trên hàng triệu hành động.
+
+**Link tham khảo:** [https://www.facebook.com/share/p/1UDZGdgAx6/?](https://www.facebook.com/share/p/1UDZGdgAx6/?)

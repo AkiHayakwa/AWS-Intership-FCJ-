@@ -24,33 +24,28 @@ pre: " <b> 1.10. </b> "
 
 ### Kết quả đạt được tuần 10:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* **Tự động hóa vá lỗi và triển khai Blue/Green cho AMI:**
+  * Hiểu rõ tầm quan trọng của vá lỗi hệ điều hành (OS patching) đối với tính bảo mật và tuân thủ (compliance) của hệ thống.
+  * Nắm vững phương pháp triển khai Blue/Green để tạo và thay thế AMI mà không gây gián đoạn dịch vụ.
+  * Nghiên cứu và áp dụng tự động hóa quy trình vá lỗi thông qua sự kết hợp của các dịch vụ AWS: EC2 Image Builder (tự động hóa tạo AMI), Systems Manager (SSM) Automation Document (điều phối quy trình) và CloudFormation với chính sách AutoScalingReplacingUpdate.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* **Triển khai và vận hành phục hồi thảm họa với AWS Elastic Disaster Recovery (AWS DRS):**
+  * Nắm vững các khái niệm cốt lõi về phục hồi thảm họa (Disaster Recovery), chỉ số RTO (Recovery Time Objective), RPO (Recovery Point Objective), tối ưu hóa chi phí và phục hồi về một thời điểm (point-in-time recovery).
+  * Hiểu rõ kiến trúc hoạt động của AWS DRS bao gồm: cách cài đặt Replication Agent trên máy chủ nguồn (on-premises mô phỏng), cơ chế sao chép đĩa cấp độ block-level, vùng đệm Staging Area VPC và các thực thể phục hồi mục tiêu.
+  * Thực hành kết nối thành công qua SSH/RDP vào các máy chủ nguồn Linux và Windows bastion.
+  * Cài đặt AWS Replication Agent và cấu hình nhân bản trên AWS DRS console.
+  * Thực hiện thành công các thao tác DR quan trọng: chạy thử nghiệm không ảnh hưởng hoạt động (drill), Failover (chuyển đổi dự phòng khi gặp sự cố) và Failback (phục hồi trở lại môi trường nguồn).
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* **Phân tích dữ liệu thời gian thực (Data Engineering Immersion Day - Lab 1):**
+  * Chuẩn bị môi trường hạ tầng dữ liệu bao gồm Amazon S3, Kinesis Stream và phân quyền IAM Roles phù hợp.
+  * Xây dựng luồng Streaming ETL với AWS Glue bằng cách tạo Data Catalog và thiết lập Glue ETL Job để xử lý, chuyển đổi dữ liệu real-time.
+  * Thực hành truyền dữ liệu thời gian thực (Real-time Streaming) bằng cách đẩy luồng dữ liệu clickstream mô phỏng vào Amazon Kinesis.
+  * Nghiên cứu giải pháp Clickstream Analytics sử dụng Amazon Managed Streaming for Apache Kafka (Amazon MSK) và Amazon Managed Service for Apache Flink để phát hiện các luồng click chuột bất thường.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* **Nhập dữ liệu và chuyển dịch cơ sở dữ liệu với AWS DMS (Lab 2):**
+  * Hiểu và thực hành quy trình dịch chuyển cơ sở dữ liệu sử dụng AWS Database Migration Service (AWS DMS).
+  * Khởi tạo thành công Replication Instance, cấu hình các điểm đầu/cuối nguồn và đích (Source/Target Endpoints).
+  * Thiết lập và chạy Database Migration Task để dịch chuyển dữ liệu một cách an toàn và tin cậy (hoặc tự động hóa bằng CloudFormation).
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
 
 

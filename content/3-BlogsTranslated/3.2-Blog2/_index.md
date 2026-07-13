@@ -1,5 +1,6 @@
 ---
 title: "Blog 2: Simplify AWS AppSync Events Integration with Powertools for AWS Lambda"
+author: "Phạm Anh Hào"
 date: 2024-01-01
 weight: 2
 chapter: false
@@ -127,3 +128,5 @@ def lambda_handler(event, context):
 ## Conclusion
 
 Building large-scale, real-time serverless systems has never been easier. By combining the high scalability of **AWS AppSync Events** with the routing and standardizing capabilities of **Powertools for AWS Lambda**, developers can deploy clean, secure, and highly maintainable WebSocket APIs with minimal effort.
+
+**Reference Link:** [https://www.facebook.com/share/p/1BS1nG91UA/](https://www.facebook.com/share/p/1BS1nG91UA/)

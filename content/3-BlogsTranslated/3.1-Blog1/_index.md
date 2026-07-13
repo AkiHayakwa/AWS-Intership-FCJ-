@@ -1,5 +1,6 @@
 ---
 title: "Blog 1: Improving Order History Search"
+author: "Phạm Anh Hào"
 date: 2024-01-01
 weight: 1
 chapter: false
@@ -137,3 +138,5 @@ By evolving Amazon's order history search to support semantic capabilities, the 
 To get started with building your own semantic search applications, you can explore:
 * [Exact k-NN search in OpenSearch](https://docs.opensearch.org/latest/vector-search/vector-search-techniques/knn-score-script/)
 * [Amazon OpenSearch Service Developer Guide](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/gsg.html)
+
+**Reference Link:** [https://www.facebook.com/share/p/191tDRSXB7/](https://www.facebook.com/share/p/191tDRSXB7/)

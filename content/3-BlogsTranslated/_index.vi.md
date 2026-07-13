@@ -6,9 +6,6 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-
-Tại đây sẽ là phần liệt kê, giới thiệu các blogs mà các bạn đã dịch. Ví dụ:
-
 ###  [Blog 1 - Cải thiện tìm kiếm lịch sử đơn hàng bằng Tìm kiếm ngữ nghĩa với Amazon OpenSearch Service](3.1-Blog1/)
 Bài viết này chia sẻ chi tiết cách đội ngũ phát triển "Your Orders" của Amazon cải thiện trải nghiệm khách hàng bằng cách đưa các tính năng tìm kiếm ngữ nghĩa (semantic search) vào hệ thống tìm kiếm từ khóa (lexical search) sẵn có, sử dụng Amazon OpenSearch Service và Amazon SageMaker, vượt qua các thử thách về quy mô lớn và duy trì tính sẵn sàng tuyệt đối của hệ thống.
 

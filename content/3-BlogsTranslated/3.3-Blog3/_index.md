@@ -1,5 +1,6 @@
 ---
 title: "Blog 3: Amazon S3 Audit Logging – Part 2: Centralized Logging and Analysis"
+author: "Đinh Tuấn Minh"
 date: 2024-01-01
 weight: 3
 chapter: false
@@ -160,3 +161,4 @@ ORDER BY eventtime DESC;
 
 Centralizing S3 data events via CloudTrail provides the vital identity context needed for security compliance. When combined with Athena partition projection, you can cost-effectively run security investigations across millions of actions. 
 
+**Reference Link:** [https://www.facebook.com/share/p/1UDZGdgAx6/?](https://www.facebook.com/share/p/1UDZGdgAx6/?)
