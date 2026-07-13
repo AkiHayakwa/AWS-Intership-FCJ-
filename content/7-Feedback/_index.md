@@ -6,36 +6,44 @@ chapter: false
 pre: " <b> 7. </b> "
 ---
 
+> Below are my personal evaluations and feedback after participating in the First Cloud Journey (FCJ) - AWS Internship program:
+
 ### Overall Evaluation
 
 **1. Working Environment**  
-The working environment is very friendly and open. FCJ members are always willing to help whenever I encounter difficulties, even outside working hours. The workspace is tidy and comfortable, helping me focus better. However, I think it would be nice to have more social gatherings or team bonding activities to strengthen relationships.
+The working environment at FCJ is highly professional and dynamic. Senior colleagues are always open and enthusiastic about supporting interns. The comfortable workspace makes it easy to focus. Having more frequent internal knowledge-sharing sessions would be great for team bonding.
 
 **2. Support from Mentor / Team Admin**  
-The mentor provides very detailed guidance, explains clearly when I don’t understand, and always encourages me to ask questions. The admin team supports administrative tasks, provides necessary documents, and creates favorable conditions for me to work effectively. I especially appreciate that the mentor allows me to try and solve problems myself instead of just giving the answer.
+I am very grateful for the dedicated guidance from the mentors, who clearly answered my questions about AWS. The admin team closely followed up and promptly provided necessary procedures and documents. The mentors' approach of guiding me to research and solve problems independently helped me improve significantly.
 
 **3. Relevance of Work to Academic Major**  
-The tasks I was assigned align well with the knowledge I learned at university, while also introducing me to new areas I had never encountered before. This allowed me to both strengthen my foundational knowledge and gain practical skills.
+The foundational knowledge from university was highly applicable to practical work, especially regarding systems and networking. Furthermore, interning at FCJ helped me expand my understanding of cloud computing and AWS.
 
 **4. Learning & Skill Development Opportunities**  
-During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. The mentor also shared valuable real-world experiences that helped me better plan my career path.
+The internship not only enhanced my technical expertise in AWS but also helped me practice essential soft skills like teamwork, communication, and time management. Practical experience from projects gave me a clearer view of my career orientation.
 
 **5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously but still keeps things enjoyable. When there are urgent projects, everyone works together and supports one another regardless of their position. This made me feel like a real part of the team, even as an intern.
+Teamwork is a aspect I am extremely impressed with. Everyone doesn't hesitate to support each other to meet the overall project deadlines. I always felt respected and listened to, even as an intern.
 
 **6. Internship Policies / Benefits**  
-The company provides an internship allowance and offers flexible working hours when needed. In addition, having the opportunity to join internal training sessions is a big plus.
+The company's intern support policies are excellent, and the flexible working hours helped me balance my studies. Adequate training courses and AWS learning resources were provided.
 
 ---
 
 ### Additional Questions
 - What did you find **most satisfying** during your internship?  
+  -> Gaining hands-on experience with AWS services and receiving enthusiastic guidance from the mentors.
 - What do you think the company **should improve** for future interns?  
+  -> Organizing more regular specialized workshops to give interns more practical opportunities.
 - If recommending to a friend, would you **suggest they intern here**? Why or why not?  
+  -> Definitely yes, because this is an ideal environment to develop Cloud knowledge and practical working skills.
 
 ---
 
 ### Suggestions & Expectations
 - Do you have any suggestions to improve the internship experience?  
+  -> I hope to see more diverse mini-projects to apply different AWS services.
 - Would you like to continue this program in the future?  
+  -> I would very much like to have the opportunity to continue accompanying and working officially at the company.
 - Any other comments (free sharing):
+  -> Thank you FCJ for providing me with a meaningful and rewarding internship experience.
