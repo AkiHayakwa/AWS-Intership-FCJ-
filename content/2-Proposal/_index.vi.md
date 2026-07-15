@@ -54,15 +54,43 @@ Kiến trúc của dự án được nhóm thiết kế tuân thủ các tiêu c
 - **Giai đoạn 4 (Giám sát & Hoàn thiện)**: Tích hợp CloudWatch, SNS, Systems Manager. Rà soát, kiểm thử các IAM Roles, Security Groups để nghiệm thu dự án.
 
 ### 5. Lộ trình & Mốc triển khai  
-- **Tuần 10**: Thống nhất sơ đồ kiến trúc, thiết lập mạng VPC và hạ tầng bảo mật cơ bản.
-- **Tuần 10**: Viết mã nguồn cho Worker thu thập dữ liệu và tích hợp thành công với Amazon Bedrock.
-- **Tuần 11**: Cấu hình EC2 Auto Scaling, EventBridge, SQS và kiểm thử kết nối qua các VPC Endpoints.
-- **Tuần 12**: Thiết lập CloudWatch monitoring, SNS alerts, tiến hành kiểm thử bảo mật và trình bày kết quả dự án nhóm.
+- **Tuần 10**:
+  - *Thiết kế kiến trúc & Nền tảng*: Thống nhất sơ đồ kiến trúc tổng thể, thiết lập mạng VPC (Public/Private Subnets, NAT Gateway, Internet Gateway) và hạ tầng bảo mật cơ bản (Security Groups, IAM Roles).
+  - *Phát triển Core Logic*: Viết mã nguồn (Node.js/Python) cho Worker thu thập dữ liệu (Collector Worker) và cấu trúc bảng DynamoDB để lưu trữ metadata. Tích hợp thử nghiệm với Amazon Bedrock thông qua SDK.
+- **Tuần 11**: 
+  - *Tự động hóa & Tích hợp*: Cấu hình EC2 Auto Scaling Group kết hợp với Launch Templates. Thiết lập EventBridge để tự động kích hoạt tiến trình theo lịch (cron job) và sử dụng SQS để làm hàng đợi (message queue) chịu lỗi giữa các worker.
+  - *Bảo mật mạng nội bộ*: Thiết lập và kiểm thử luồng traffic qua các VPC Endpoints (S3, DynamoDB, SQS, Bedrock) để đảm bảo không dữ liệu nào truyền ra ngoài internet công cộng.
+- **Tuần 12**:
+  - *Frontend & Phân phối nội dung*: Deploy giao diện người dùng tĩnh lên Amazon S3 và cấu hình CloudFront (OAC) cùng AWS WAF để bảo vệ và tăng tốc độ tải trang.
+  - *Giám sát & Hoàn thiện*: Cấu hình CloudWatch Dashboard để theo dõi hiệu suất hệ thống, thiết lập SNS để gửi email cảnh báo (alerts) khi có sự cố. Tiến hành kiểm thử bảo mật (penetration testing nội bộ) và chuẩn bị slide trình bày kết quả cuối kỳ của dự án nhóm.
 
-### 6. Đánh giá rủi ro và Kế hoạch dự phòng 
-- **Lỗi kết nối tới External API**: Xây dựng cơ chế *Retry* kết hợp lưu trữ lại công việc chưa hoàn thành trong SQS.
-- **Chi phí phát sinh từ Amazon Bedrock**: Đặt các mức trần trong *AWS Budgets* để cảnh báo nhóm ngay lập tức nếu chi phí tăng bất thường.
-- **Rủi ro bảo mật máy chủ**: Tuyệt đối không cấp Public IP cho EC2, sử dụng *Session Manager* để truy cập và đóng tất cả các in-bound port không cần thiết trên Security Group.
+### 6. Ước tính ngân sách (Budget Estimation)
+Bạn có thể xem chi tiết bảng tính trên [AWS Pricing Calculator](#).
 
-### 7. Kết quả kỳ vọng  
-Dự án kiến trúc AWS của nhóm sẽ tạo ra một luồng xử lý dữ liệu mạnh mẽ, kết hợp khả năng tính toán linh hoạt (EC2 Auto Scaling) và sức mạnh trí tuệ nhân tạo (Amazon Bedrock). Cấu trúc mạng VPC cô lập kết hợp các Endpoint giúp đáp ứng hoàn toàn tiêu chuẩn bảo mật doanh nghiệp (Enterprise-grade security), biến đây thành một giải pháp đáng tin cậy cho bất kỳ hệ thống phân tích, tổng hợp dữ liệu nào.
+*Chi phí hạ tầng (AWS Services)*
+- **Amazon EC2 (t4g.small)**: ~6,00 USD/tháng (chạy Auto Scaling, ước tính thời gian hoạt động bán thời gian).
+- **NAT Gateway & Truyền tải dữ liệu**: ~15,00 USD/tháng (dành cho việc Worker gọi External API).
+- **Amazon Bedrock (Nova Lite)**: ~2,50 USD/tháng (ước lượng số lượng token để tóm tắt văn bản).
+- **Amazon S3 Standard**: ~0,15 USD/tháng (lưu trữ frontend tĩnh và file nội dung).
+- **Amazon DynamoDB**: 0,00 USD/tháng (nằm trong giới hạn Free Tier).
+- **Amazon SQS & EventBridge**: 0,00 USD/tháng (nằm trong giới hạn Free Tier).
+- **Amazon CloudFront & WAF**: ~5,00 USD/tháng (phí duy trì WAF WebACL, CloudFront nằm trong Free Tier).
+
+**Tổng chi phí ước tính**: ~28,65 USD/tháng
+
+### 7. Đánh giá rủi ro và Kế hoạch dự phòng 
+- **Lỗi kết nối hoặc thay đổi cấu trúc từ External API**: Các API bên ngoài có thể bị lỗi giới hạn tỷ lệ (Rate Limit) hoặc thay đổi cấu trúc JSON đột ngột. 
+  - *Dự phòng*: Xây dựng cơ chế *Exponential Backoff & Retry* trong code của Worker. Sử dụng *Dead-Letter Queue (DLQ)* trong SQS để lưu trữ lại các request thất bại, cho phép xử lý lại sau khi kỹ sư khắc phục lỗi cấu trúc API.
+- **Chi phí phát sinh từ Amazon Bedrock & NAT Gateway**: Do Bedrock tính phí theo số lượng token và NAT Gateway tính phí theo giờ/lưu lượng, việc Worker rơi vào vòng lặp vô tận (infinite loop) có thể gây thiệt hại lớn.
+  - *Dự phòng*: Đặt các mức trần nghiêm ngặt trong *AWS Budgets* để cảnh báo nhóm qua email/SMS ngay lập tức nếu chi phí đạt 50%, 80%, và 100% giới hạn ngân sách (ví dụ: $30/tháng).
+- **Rủi ro bảo mật máy chủ & rò rỉ dữ liệu**: Hacker có thể dò quét và tấn công các máy chủ EC2 nếu mở port ra internet.
+  - *Dự phòng*: Tuyệt đối không cấp Public IP cho EC2 (đặt trong Private Subnet). Chỉ truy cập và quản trị máy chủ thông qua *AWS Systems Manager (Session Manager)*. Sử dụng IAM Roles với quyền hạn tối thiểu (Least Privilege).
+- **Mất mát dữ liệu trong quá trình xử lý**: Lỗi phần cứng hoặc phần mềm khiến EC2 Worker bị sập khi đang phân tích bài viết.
+  - *Dự phòng*: SQS có cơ chế khóa thông điệp (Visibility Timeout). Nếu EC2 bị sập trước khi xóa thông điệp, thông điệp sẽ hiển thị lại trên hàng đợi để một EC2 Worker khác (do Auto Scaling tạo ra) tiếp tục xử lý, đảm bảo tính toàn vẹn dữ liệu.
+
+### 8. Kết quả kỳ vọng  
+Dự án kiến trúc AWS của nhóm kỳ vọng sẽ đạt được các mục tiêu mang tính toàn diện về cả mặt công nghệ và hiệu quả vận hành:
+- **Tự động hóa hoàn toàn luồng công việc**: Chuyển đổi quy trình thu thập và tóm tắt thông tin thủ công thành một hệ thống tự động hóa 100%. Tiết kiệm tới 80% thời gian xử lý dữ liệu hàng ngày cho các đội ngũ phân tích nghiệp vụ.
+- **Khả năng mở rộng không giới hạn (High Scalability)**: Thông qua việc tích hợp EC2 Auto Scaling và SQS, hệ thống có khả năng tự động tăng số lượng worker khi lượng tin tức cần xử lý tăng đột biến, và tự động thu hẹp khi không có công việc để tiết kiệm tối đa chi phí.
+- **Áp dụng AI tạo sinh (GenAI) vào thực tế**: Khai thác thành công sức mạnh của Amazon Bedrock (Nova Lite/Claude) để đọc hiểu và cô đọng hàng ngàn trang tài liệu thành những tóm tắt ngắn gọn, chính xác với độ trễ thấp.
+- **Đạt tiêu chuẩn bảo mật doanh nghiệp (Enterprise-Grade Security)**: Cấu trúc mạng VPC được thiết kế chuẩn mực với Private Subnets, VPC Endpoints, mã hóa dữ liệu trên S3/DynamoDB và bảo vệ Frontend bằng CloudFront + WAF. Giải pháp này không chỉ phục vụ cho một bài tập nhóm mà hoàn toàn có thể được ứng dụng như một sản phẩm thương mại (SaaS) có độ tin cậy cao trên môi trường thực tế.

@@ -5,11 +5,6 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
 
 # AI-Powered Data Extraction & Summarization Platform
 ## Group Project: Automated Data Collection and Summarization Solution using AWS & Amazon Bedrock
@@ -58,15 +53,43 @@ The project's architecture is designed by the team to comply with security stand
 - **Phase 4 (Monitoring & Finalization)**: Integrates CloudWatch, SNS, Systems Manager. Reviews and tests IAM Roles and Security Groups to accept the project.
 
 ### 5. Timeline & Milestones  
-- **Week 10**: Agree on the architecture diagram, set up the VPC network and basic security infrastructure.
-- **Week 10**: Write source code for the Worker to collect data and successfully integrate with Amazon Bedrock.
-- **Week 11**: Configure EC2 Auto Scaling, EventBridge, SQS, and test connections through VPC Endpoints.
-- **Week 12**: Set up CloudWatch monitoring, SNS alerts, conduct security testing, and present the group project results.
+- **Week 10**:
+  - *Architecture & Foundation Design*: Finalize the overall architecture diagram, set up the core VPC network (Public/Private Subnets, NAT Gateway, Internet Gateway), and configure basic security infrastructure (Security Groups, IAM Roles).
+  - *Core Logic Development*: Write source code (Node.js/Python) for the Collector Worker to gather data and design the DynamoDB table schema to store metadata. Successfully conduct trial integrations with Amazon Bedrock via SDKs.
+- **Week 11**: 
+  - *Automation & Integration*: Configure the EC2 Auto Scaling Group combined with Launch Templates. Build the EventBridge schedule to trigger periodic cron jobs and utilize SQS as a fault-tolerant message queue between worker processes.
+  - *Internal Network Security*: Set up and test traffic routing through VPC Endpoints (S3, DynamoDB, SQS, Bedrock) to ensure no sensitive data traverses the public internet.
+- **Week 12**:
+  - *Frontend & Content Delivery*: Deploy the static user interface to Amazon S3 and configure CloudFront (with OAC) alongside AWS WAF to protect and accelerate page loading worldwide.
+  - *Monitoring & Finalization*: Configure CloudWatch Dashboards to monitor system performance and set up SNS to send email alerts during incidents. Conduct internal penetration/security testing and prepare presentation slides for the final project showcase.
 
-### 6. Risk Assessment and Contingency Plan 
-- **Connection Error to External API**: Build a *Retry* mechanism combined with storing incomplete jobs in SQS.
-- **Unexpected Costs from Amazon Bedrock**: Set strict ceilings in *AWS Budgets* to alert the team immediately if costs spike.
-- **Server Security Risks**: Strictly do not grant Public IPs to EC2, use *Session Manager* for access, and close all unnecessary inbound ports on Security Groups.
+### 6. Budget Estimation
+You can find the detailed budget estimation on the [AWS Pricing Calculator](#).  
 
-### 7. Expected Outcomes  
-Our team's AWS architecture project will create a robust data processing flow, combining flexible computing power (EC2 Auto Scaling) and artificial intelligence (Amazon Bedrock). The isolated VPC network structure combined with Endpoints helps fully meet enterprise-grade security standards, making this a reliable solution for any data analysis and summarization system.
+*Infrastructure Costs (AWS Services)*
+- **Amazon EC2 (t4g.small)**: ~$6.00/month (Auto Scaling, assuming partial usage).
+- **NAT Gateway & Data Transfer**: ~$15.00/month (for outbound API calls to collect data).
+- **Amazon Bedrock (Nova Lite)**: ~$2.50/month (Estimated token usage for summarization).
+- **Amazon S3 Standard**: ~$0.15/month (Storage for frontend and text contents).
+- **Amazon DynamoDB**: $0.00/month (Within Free Tier limits).
+- **Amazon SQS & EventBridge**: $0.00/month (Within Free Tier limits).
+- **Amazon CloudFront & WAF**: ~$5.00/month (WAF WebACL base fee, CloudFront within Free Tier).
+
+**Total Estimated Cost**: ~$28.65/month
+
+### 7. Risk Assessment and Contingency Plan 
+- **Connection Errors or External API Format Changes**: External APIs might impose rate limits or unexpectedly change their JSON structure.
+  - *Contingency*: Implement an *Exponential Backoff & Retry* mechanism within the Worker code. Utilize a *Dead-Letter Queue (DLQ)* in SQS to store failed requests, allowing for reprocessing once engineers fix the API parsing logic.
+- **Unexpected Costs from Amazon Bedrock & NAT Gateway**: Since Bedrock charges per token and NAT Gateway charges per hour/data processing, an infinite loop in the Worker could cause severe financial impact.
+  - *Contingency*: Set strict, multi-tiered limits in *AWS Budgets* to immediately alert the team via email/SMS if costs reach 50%, 80%, and 100% of the allocated threshold (e.g., $30/month).
+- **Server Security Risks & Data Leaks**: Hackers often scan and attack EC2 instances if SSH ports are exposed to the public internet.
+  - *Contingency*: Strictly do not assign Public IPs to EC2 instances (keeping them in Private Subnets). Access and administer servers exclusively via *AWS Systems Manager (Session Manager)*. Enforce the principle of Least Privilege for all IAM Roles.
+- **Data Loss During Processing**: Hardware faults or software bugs might crash an EC2 Worker while it is analyzing an article.
+  - *Contingency*: SQS utilizes a Visibility Timeout mechanism. If an EC2 instance crashes before deleting the message, the message reappears in the queue for another EC2 Worker (spawned by Auto Scaling) to pick up and process, ensuring Zero Data Loss.
+
+### 8. Expected Outcomes  
+Our team's AWS architecture project is expected to achieve comprehensive technical and operational milestones:
+- **Fully Automated Workflow**: Transform the manual data collection and summarization process into a 100% automated system. This saves up to 80% of daily data processing time for business analysis teams.
+- **High Scalability & Cost Efficiency**: By integrating EC2 Auto Scaling with SQS, the system autonomously spins up more workers during traffic spikes and scales down to zero when idle, drastically reducing operational costs.
+- **Practical Application of Generative AI**: Successfully harness the power of Amazon Bedrock (Nova Lite/Claude models) to comprehend and condense thousands of document pages into concise, highly accurate summaries with low latency.
+- **Enterprise-Grade Security Standards**: The VPC network is meticulously designed with Private Subnets, VPC Endpoints, data encryption at rest (S3/DynamoDB), and Frontend protection via CloudFront + WAF. This solution goes beyond a simple academic group project—it is built with the reliability and security required for a real-world, commercial Software-as-a-Service (SaaS) product.
