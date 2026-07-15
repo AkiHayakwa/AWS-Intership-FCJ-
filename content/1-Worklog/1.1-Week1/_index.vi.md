@@ -9,7 +9,7 @@ pre: " <b> 1.1. </b> "
 ### Mục tiêu tuần 1:
 
 * Kết nối, làm quen với các thành viên và nội quy của First Cloud Journey.
-* Nắm vững các khái niệm cơ bản về điện toán đám mây và các nhóm dịch vụ cốt lõi của AWS.
+* Nắm vững các khái niệm cơ bản về Cloud Computing và các nhóm dịch vụ cốt lõi của AWS.
 * Thiết lập hệ thống mạng VPC cơ bản, khởi tạo và quản trị máy chủ EC2 (Linux & Windows).
 * Tìm hiểu quản lý danh tính và quyền truy cập (IAM), thiết lập môi trường phát triển Cloud9 và cấu hình AWS CLI.
 
@@ -28,14 +28,14 @@ pre: " <b> 1.1. </b> "
 
 - Hội nhập & Nền tảng AWS
 
-  + Làm quen với các thành viên nhóm FCJ, nắm vững nội quy thực tập và hiểu được các khái niệm cốt lõi về dịch vụ đám mây của AWS (Điện toán, Lưu trữ, Mạng, Cơ sở dữ liệu).
+  + Làm quen với các thành viên nhóm FCJ, nắm vững nội quy thực tập và hiểu được các khái niệm cốt lõi về dịch vụ Cloud của AWS (Compute, Storage, Networking, Database).
 
 - Quản lý Danh tính & Truy cập (IAM)
 
   + Thành thạo việc khởi tạo và quản lý IAM User, Group, Role và Policy.
   + Hiểu sâu về các cơ chế bảo mật nâng cao như chuyển đổi quyền (Assume Role), phân biệt các loại Policy, và cách áp dụng IAM Instance Profile cho máy chủ ảo EC2.
 
-- Mạng đám mây (VPC)
+- Cloud Networking (VPC)
 
   + Tự thiết kế và triển khai thành công một mạng riêng ảo (VPC) hoàn chỉnh.
   + Cấu hình chi tiết các thành phần mạng cốt lõi bao gồm Subnet, Route Table, Internet Gateway, NAT Gateway, Security Group, VPC Flow Logs, Elastic IP và tìm hiểu về kết nối Site-to-Site VPN.

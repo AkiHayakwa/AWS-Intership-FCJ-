@@ -26,7 +26,7 @@ pre: " <b> 1.2. </b> "
 
 ### Kết quả đạt được tuần 2:
 
-- Mở rộng Nền tảng Máy chủ & Cân bằng tải
+- Mở rộng Nền tảng Máy chủ & Load Balancing
 
   + Nắm vững và thực hành thành công Amazon EC2 Auto Scaling, Elastic Load Balancing (ELB), và Launch Templates nhằm đảm bảo tính sẵn sàng cao cho hệ thống.
 
@@ -53,7 +53,7 @@ pre: " <b> 1.2. </b> "
   + Triển khai ứng dụng trên Amazon ECS, bao gồm tạo cluster, service và đăng ký namespace với Cloud Map.
   + Xây dựng luồng tích hợp và triển khai liên tục (CI/CD) bằng GitLab, GitHub Actions và AWS CodeBuild.
 
-- Bảo mật Đám mây
+- Cloud Security
 
   + Củng cố kiến thức về quản lý bảo mật tập trung trên AWS thông qua AWS Security Hub.
 

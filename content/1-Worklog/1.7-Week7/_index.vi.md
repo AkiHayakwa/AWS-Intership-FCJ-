@@ -36,7 +36,7 @@ pre: " <b> 1.7. </b> "
 
 * **Lưu trữ ứng dụng Web bảo mật:**
   * Tạo và cấu hình chứng chỉ SSL/TLS thông qua AWS Certificate Manager (ACM) để mã hóa dữ liệu truyền tải.
-  * Định tuyến lưu lượng tên miền qua Route 53 và tối ưu hóa phân phối nội dung toàn cầu qua CloudFront.
+  * Route lưu lượng tên miền qua Route 53 và tối ưu hóa phân phối nội dung toàn cầu qua CloudFront.
   * Bảo mật truy cập trực tiếp đến S3 bucket bằng cách cấu hình Origin Access Control (OAC).
 
 * **Giao tiếp bất đồng bộ (SQS & SNS):**

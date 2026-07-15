@@ -47,7 +47,7 @@ pre: " <b> 1.9. </b> "
 
 * **Truy cập từ xa an toàn & Tích hợp AWS Network Firewall:**
   * Tìm hiểu 10 lời khuyên bảo mật quan trọng từ AWS CISO Stephan Schmidt về việc đảm bảo an toàn truy cập từ xa cho các máy chủ và dịch vụ.
-  * Nắm vững cách cấu hình Amazon EC2 Security Groups và AWS Network Firewall để giới hạn truy cập từ xa theo địa chỉ IP, cổng kết nối (Port) và giao thức (Protocol).
+  * Nắm vững cách cấu hình Amazon EC2 Security Groups và AWS Network Firewall để giới hạn truy cập từ xa theo địa chỉ IP, Port và giao thức (Protocol).
   * Thực hành các kịch bản kết nối từ xa an toàn qua giao thức SSH (Cổng 22) và RDP (Cổng 3389).
   * Tìm hiểu cách triển khai chính sách bảo mật tập trung cho nhiều tài khoản AWS sử dụng AWS Firewall Manager, AWS Organizations, AWS Config và AWS Resource Access Manager (RAM).
 

@@ -49,7 +49,7 @@ pre: " <b> 1.8. </b> "
   * Cấu hình và sử dụng AWS CodeDeploy để tự động hóa việc triển khai phần mềm, giảm thiểu lỗi thủ công và quản lý các đợt cập nhật ứng dụng hiệu quả.
 
 * **Amazon WorkSpaces & Cơ sở hạ tầng máy tính ảo (VDI):**
-  * Khám phá cách triển khai và quản lý máy tính ảo (Windows, macOS, Ubuntu) an toàn trên đám mây.
+  * Khám phá cách triển khai và quản lý máy tính ảo (Windows, macOS, Ubuntu) an toàn trên AWS Cloud.
   * Hiểu các tùy chọn kết nối an toàn cho người dùng cuối qua client và trình duyệt web.
 
 

@@ -33,11 +33,11 @@ pre: " <b> 1.12 </b> "
   * **Amazon DynamoDB**: Lưu bản ghi bài viết và hash deduplication; chế độ On-demand xử lý tốt các đỉnh thu thập RSS không đều
   * **Amazon S3**: Lưu file `.txt` nội dung sạch (do Content Worker ghi) và bản build frontend tĩnh (phục vụ qua CloudFront)
   * **Amazon Bedrock (Nova Lite)**: Tạo tóm tắt AI qua InvokeModel API; hiểu giới hạn token và cơ chế throttling là yếu tố quan trọng cho thiết kế retry
-  * **Amazon CloudFront**: Là điểm vào public duy nhất — định tuyến `/` tới S3 (frontend) và `/api/*` tới EC2 (backend) qua cache behaviors và cơ chế Origin Secret Header
+  * **Amazon CloudFront**: Là điểm vào public duy nhất — route `/` tới S3 (frontend) và `/api/*` tới EC2 (backend) qua cache behaviors và cơ chế Origin Secret Header
 
 * **Vẽ lại sơ đồ workflow của CloudBrief**, bao gồm:
   * Toàn bộ pipeline dữ liệu: RSS Feeds → Collector → SQS → Content Worker → S3 + SQS → Summarizer → DynamoDB
-  * Định tuyến CloudFront: asset tĩnh từ S3 và API request chuyển tiếp tới EC2
+  * Route CloudFront: asset tĩnh từ S3 và API request chuyển tiếp tới EC2
   * Phân công IAM role: EC2 instance role với quyền giới hạn cho S3, SQS, DynamoDB và Bedrock
   * Các nhánh xử lý lỗi: DLQ cho message lỗi, exponential backoff khi Bedrock throttle
   * Ranh giới bảo mật: EC2 không public, được bảo vệ bởi Origin Secret Header qua CloudFront
