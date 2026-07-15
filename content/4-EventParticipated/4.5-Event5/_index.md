@@ -1,6 +1,6 @@
 ---
 title: "Event 5"
-date: 2026-06-25
+date: 2026-07-11
 weight: 5
 chapter: false
 pre: " <b> 4.5. </b> "
@@ -73,5 +73,5 @@ pre: " <b> 4.5. </b> "
 - **Plan to study for the AWS Certified Cloud Practitioner** certificate following the 4-domain roadmap, utilize free AWS Skill Builder resources, and practice on a Free Tier account.
 - **Experiment with integrating automated source code scanning tools** into the team's CI/CD pipeline to automatically check security upon every Pull Request creation.
 
-![First Cloud AI Journey](z8039068243577_1016755ae263c32512c060d417ef7767.jpg)
+![First Cloud AI Journey](/images/4-EventParticipated/4.5-Event5/z8039068243577_1016755ae263c32512c060d417ef7767.jpg)
 

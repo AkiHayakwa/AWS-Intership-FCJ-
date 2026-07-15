@@ -1,6 +1,6 @@
 ---
 title: "Event 5"
-date: 2026-06-25
+date: 2026-07-11
 weight: 5
 chapter: false
 pre: " <b> 4.5. </b> "
@@ -73,5 +73,5 @@ pre: " <b> 4.5. </b> "
 - **Lên kế hoạch ôn tập chứng chỉ AWS Certified Cloud Practitioner** theo lộ trình 4 phân vùng, tận dụng nguồn tài liệu miễn phí AWS Skill Builder và thực hành trên tài khoản Free Tier.
 - **Thử nghiệm tích hợp các công cụ quét mã nguồn tự động** vào quy trình CI/CD của nhóm để tự động kiểm tra bảo mật mỗi khi tạo Pull Request.
 
-![First Cloud AI Journey](z8039068243577_1016755ae263c32512c060d417ef7767.jpg)
+![First Cloud AI Journey](/images/4-EventParticipated/4.5-Event5/z8039068243577_1016755ae263c32512c060d417ef7767.jpg)
 

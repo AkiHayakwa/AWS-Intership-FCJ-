@@ -5,104 +5,64 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.
-
-# IoT Weather Platform for Lab Research  
-## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  
+# AI-Powered Data Extraction & Summarization Platform
+## Dự án nhóm: Giải pháp tự động hoá thu thập và tổng hợp dữ liệu sử dụng AWS & Amazon Bedrock
 
 ### 1. Tóm tắt điều hành  
-IoT Weather Platform được thiết kế dành cho nhóm *ITea Lab* tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.  
+Dự án "AI-Powered Data Extraction & Summarization Platform" được thiết kế và phát triển bởi nhóm chúng em nhằm giải quyết bài toán tự động thu thập, trích xuất và tóm tắt khối lượng lớn dữ liệu từ các nguồn API bên ngoài. Thay vì xử lý thủ công tốn thời gian, nền tảng tận dụng sức mạnh của Amazon Bedrock (Generative AI) kết hợp với kiến trúc AWS có khả năng mở rộng cao (EC2 Auto Scaling, SQS, EventBridge) để xử lý dữ liệu định kỳ một cách hoàn toàn tự động, an toàn và tối ưu chi phí.
 
 ### 2. Tuyên bố vấn đề  
 *Vấn đề hiện tại*  
-Các trạm thời tiết hiện tại yêu cầu thu thập dữ liệu thủ công, khó quản lý khi có nhiều trạm. Không có hệ thống tập trung cho dữ liệu hoặc phân tích thời gian thực, và các nền tảng bên thứ ba thường tốn kém và quá phức tạp.  
+Hiện tại, việc thu thập thông tin từ các nguồn dữ liệu bên ngoài (External APIs) và tóm tắt nội dung đang được thực hiện thủ công hoặc thông qua các kịch bản (script) rời rạc. Điều này dẫn đến sự thiếu ổn định, khó mở rộng khi lượng dữ liệu tăng lên, và tiêu tốn nhiều thời gian của nhân sự để đọc và phân tích dữ liệu.
 
-*Giải pháp*  
-Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.  
+*Giải pháp của nhóm*  
+Nhóm chúng tôi đề xuất một hệ thống tự động hóa hoàn toàn trên AWS. Giao diện người dùng được phân phối qua CloudFront. Backend xử lý dữ liệu chạy trên các máy chủ EC2 (nằm trong Private Subnet để bảo mật) được quản lý bởi Auto Scaling Group. Quá trình lấy dữ liệu và xử lý được lập lịch tự động mỗi 8 giờ bởi EventBridge và SQS. Sức mạnh cốt lõi của giải pháp là việc tích hợp Amazon Bedrock để AI tự động đọc hiểu, làm sạch và tóm tắt dữ liệu. Kết quả được lưu trữ bền vững trên S3 và DynamoDB.
 
 *Lợi ích và hoàn vốn đầu tư (ROI)*  
-Giải pháp tạo nền tảng cơ bản để các thành viên phòng lab phát triển một nền tảng IoT lớn hơn, đồng thời cung cấp nguồn dữ liệu cho những người nghiên cứu AI phục vụ huấn luyện mô hình hoặc phân tích. Nền tảng giảm bớt báo cáo thủ công cho từng trạm thông qua hệ thống tập trung, đơn giản hóa quản lý và bảo trì, đồng thời cải thiện độ tin cậy dữ liệu. Chi phí hàng tháng ước tính 0,66 USD (theo AWS Pricing Calculator), tổng cộng 7,92 USD cho 12 tháng. Tất cả thiết bị IoT đã được trang bị từ hệ thống trạm thời tiết hiện tại, không phát sinh chi phí phát triển thêm. Thời gian hoàn vốn 6–12 tháng nhờ tiết kiệm đáng kể thời gian thao tác thủ công.  
+Giải pháp giúp tự động hóa 100% quy trình thu thập và báo cáo dữ liệu định kỳ, tiết kiệm hàng chục giờ làm việc mỗi tuần cho đội ngũ phân tích. Bằng việc sử dụng Auto Scaling và giới hạn tài nguyên, hệ thống tối ưu được chi phí vận hành do chỉ cấp phát tài nguyên khi thực sự có tác vụ xử lý dữ liệu.
 
-### 3. Kiến trúc giải pháp  
-Nền tảng áp dụng kiến trúc AWS Serverless để quản lý dữ liệu từ 5 trạm dựa trên Raspberry Pi, có thể mở rộng lên 15 trạm. Dữ liệu được tiếp nhận qua AWS IoT Core, lưu trữ trong S3 data lake và xử lý bởi AWS Glue Crawlers và ETL jobs để chuyển đổi và tải vào một S3 bucket khác cho mục đích phân tích. Lambda và API Gateway xử lý bổ sung, trong khi Amplify với Next.js cung cấp bảng điều khiển được bảo mật bởi Cognito.  
+### 3. Kiến trúc giải pháp và Luồng chạy (Execution Flow)
+Kiến trúc của dự án được nhóm thiết kế tuân thủ các tiêu chuẩn bảo mật (Security) và độ sẵn sàng cao (High Availability) trên AWS. Đảm bảo luồng dữ liệu được xử lý khép kín và an toàn.
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+![Architecture Diagram](/images/2-Proposal/cloudbrief-current-architecture.drawio.png)
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
 
-*Dịch vụ AWS sử dụng*  
-- *AWS IoT Core*: Tiếp nhận dữ liệu MQTT từ 5 trạm, mở rộng lên 15.  
-- *AWS Lambda*: Xử lý dữ liệu và kích hoạt Glue jobs (2 hàm).  
-- *Amazon API Gateway*: Giao tiếp với ứng dụng web.  
-- *Amazon S3*: Lưu trữ dữ liệu thô (data lake) và dữ liệu đã xử lý (2 bucket).  
-- *AWS Glue*: Crawlers lập chỉ mục dữ liệu, ETL jobs chuyển đổi và tải dữ liệu.  
-- *AWS Amplify*: Lưu trữ giao diện web Next.js.  
-- *Amazon Cognito*: Quản lý quyền truy cập cho người dùng phòng lab.  
-
-*Thiết kế thành phần*  
-- *Thiết bị biên*: Raspberry Pi thu thập và lọc dữ liệu cảm biến, gửi tới IoT Core.  
-- *Tiếp nhận dữ liệu*: AWS IoT Core nhận tin nhắn MQTT từ thiết bị biên.  
-- *Lưu trữ dữ liệu*: Dữ liệu thô lưu trong S3 data lake; dữ liệu đã xử lý lưu ở một S3 bucket khác.  
-- *Xử lý dữ liệu*: AWS Glue Crawlers lập chỉ mục dữ liệu; ETL jobs chuyển đổi để phân tích.  
-- *Giao diện web*: AWS Amplify lưu trữ ứng dụng Next.js cho bảng điều khiển và phân tích thời gian thực.  
-- *Quản lý người dùng*: Amazon Cognito giới hạn 5 tài khoản hoạt động.  
+*Luồng chạy chi tiết của dự án (Execution Flow):*
+1. **Giao tiếp người dùng (Frontend)**: Người dùng truy cập ứng dụng thông qua **CloudFront** (được bảo vệ bởi **AWS WAF**). CloudFront phân phối nội dung tĩnh từ **S3 bucket (frontend, private, versioned)** một cách an toàn thông qua tính năng OAC (Origin Access Control) cùng các behavior đã thiết lập.
+2. **Kích hoạt tự động hóa**: **EventBridge Trigger** được cấu hình để kích hoạt mỗi 8 giờ, gửi thông điệp vào hàng đợi **SQS** để bắt đầu quy trình trích xuất dữ liệu.
+3. **Mạng lưới tính toán**: Hệ thống sử dụng **Auto Scaling Group** quản lý các **EC2 Worker**. Các máy chủ này được phân bổ vào các **Private Subnet (A và B)** (không có Public IP) nhằm đảm bảo an ninh. Các Worker này liên tục kéo (pull) công việc (job) từ hàng đợi thông qua **SQS VPC Endpoint**.
+4. **Thu thập dữ liệu (Outbound Traffic)**: Để lấy dữ liệu từ **External API**, các EC2 Worker kết nối ra internet thông qua **NAT Gateway** (đặt ở Public Subnet) và đi qua **Internet Gateway**.
+5. **Tích hợp Generative AI**: Sau khi lấy được dữ liệu, EC2 Worker đẩy nội dung sang **Amazon Bedrock** thông qua **Bedrock VPC Endpoint** để mô hình AI xử lý ngôn ngữ thực hiện việc trích xuất thông tin và tóm tắt.
+6. **Lưu trữ kết quả an toàn**: 
+   - Dữ liệu văn bản sau khi làm sạch (Cleaned content) được Worker đẩy trực tiếp vào **S3 bucket** thông qua **S3 Gateway Endpoint**.
+   - Các siêu dữ liệu (metadata), thông tin có cấu trúc được lưu vào **DynamoDB** thông qua **DynamoDB VPC Endpoint**. Cơ sở dữ liệu này được cấu hình sao lưu (Backup) tự động.
+   - Các thông điệp trạng thái hoặc job tóm tắt nâng cao có thể được đẩy vào hàng đợi **SQS Summarize** cũng qua SQS Endpoint.
+7. **Giám sát và Vận hành (Monitoring & Alerting)**:
+   - Các EC2 Worker được quản trị thông qua **Systems Manager (Session Manager - SSM)**, không cần mở cổng SSH.
+   - Toàn bộ logs và metrics (chỉ số) được thu thập bởi **CloudWatch**.
+   - Nếu hệ thống phát hiện bất thường vượt ngưỡng (CloudWatch Alarm), thông báo sẽ được gửi qua **SNS Topic** đến **Email của Admin**.
+8. **Bảo mật và Chi phí**:
+   - Sử dụng **Security Group** và **IAM Role** cho ASG với nguyên tắc đặc quyền tối thiểu (least scoped).
+   - Thiết lập **AWS Budgets** để tự động gửi email cảnh báo khi chi phí hệ thống vượt mức kiểm soát.
 
 ### 4. Triển khai kỹ thuật  
-*Các giai đoạn triển khai*  
-Dự án gồm 2 phần — thiết lập trạm thời tiết biên và xây dựng nền tảng thời tiết — mỗi phần trải qua 4 giai đoạn:  
-1. *Nghiên cứu và vẽ kiến trúc*: Nghiên cứu Raspberry Pi với cảm biến ESP32 và thiết kế kiến trúc AWS Serverless (1 tháng trước kỳ thực tập).  
-2. *Tính toán chi phí và kiểm tra tính khả thi*: Sử dụng AWS Pricing Calculator để ước tính và điều chỉnh (Tháng 1).  
-3. *Điều chỉnh kiến trúc để tối ưu chi phí/giải pháp*: Tinh chỉnh (ví dụ tối ưu Lambda với Next.js) để đảm bảo hiệu quả (Tháng 2).  
-4. *Phát triển, kiểm thử, triển khai*: Lập trình Raspberry Pi, AWS services với CDK/SDK và ứng dụng Next.js, sau đó kiểm thử và đưa vào vận hành (Tháng 2–3).  
-
-*Yêu cầu kỹ thuật*  
-- *Trạm thời tiết biên*: Cảm biến (nhiệt độ, độ ẩm, lượng mưa, tốc độ gió), vi điều khiển ESP32, Raspberry Pi làm thiết bị biên. Raspberry Pi chạy Raspbian, sử dụng Docker để lọc dữ liệu và gửi 1 MB/ngày/trạm qua MQTT qua Wi-Fi.  
-- *Nền tảng thời tiết*: Kiến thức thực tế về AWS Amplify (lưu trữ Next.js), Lambda (giảm thiểu do Next.js xử lý), AWS Glue (ETL), S3 (2 bucket), IoT Core (gateway và rules), và Cognito (5 người dùng). Sử dụng AWS CDK/SDK để lập trình (ví dụ IoT Core rules tới S3). Next.js giúp giảm tải Lambda cho ứng dụng web fullstack.  
+*Phân công và các giai đoạn thực hiện của nhóm:*
+- **Giai đoạn 1 (Thiết kế & Khởi tạo)**: Nhóm xây dựng mạng VPC nền tảng với đầy đủ Public/Private Subnets, NAT Gateway. Thiết lập S3 Frontend bảo mật qua CloudFront và WAF.
+- **Giai đoạn 2 (Tích hợp AI & Lập lịch)**: Cài đặt cấu hình Auto Scaling Group cho EC2 Worker. Xây dựng lịch trình EventBridge và SQS. Phát triển mã nguồn cho EC2 Worker gọi External API và Amazon Bedrock.
+- **Giai đoạn 3 (Lưu trữ nội bộ)**: Thiết lập các VPC Endpoints (S3, DynamoDB, SQS, Bedrock) để đảm bảo traffic không đi qua mạng internet công cộng. Tạo các bảng DynamoDB và S3 bucket tương ứng.
+- **Giai đoạn 4 (Giám sát & Hoàn thiện)**: Tích hợp CloudWatch, SNS, Systems Manager. Rà soát, kiểm thử các IAM Roles, Security Groups để nghiệm thu dự án.
 
 ### 5. Lộ trình & Mốc triển khai  
-- *Trước thực tập (Tháng 0)*: 1 tháng lên kế hoạch và đánh giá trạm cũ.  
-- *Thực tập (Tháng 1–3)*:  
-    - Tháng 1: Học AWS và nâng cấp phần cứng.  
-    - Tháng 2: Thiết kế và điều chỉnh kiến trúc.  
-    - Tháng 3: Triển khai, kiểm thử, đưa vào sử dụng.  
-- *Sau triển khai*: Nghiên cứu thêm trong vòng 1 năm.  
+- **Tuần 10**: Thống nhất sơ đồ kiến trúc, thiết lập mạng VPC và hạ tầng bảo mật cơ bản.
+- **Tuần 10**: Viết mã nguồn cho Worker thu thập dữ liệu và tích hợp thành công với Amazon Bedrock.
+- **Tuần 11**: Cấu hình EC2 Auto Scaling, EventBridge, SQS và kiểm thử kết nối qua các VPC Endpoints.
+- **Tuần 12**: Thiết lập CloudWatch monitoring, SNS alerts, tiến hành kiểm thử bảo mật và trình bày kết quả dự án nhóm.
 
-### 6. Ước tính ngân sách  
-Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).  
+### 6. Đánh giá rủi ro và Kế hoạch dự phòng 
+- **Lỗi kết nối tới External API**: Xây dựng cơ chế *Retry* kết hợp lưu trữ lại công việc chưa hoàn thành trong SQS.
+- **Chi phí phát sinh từ Amazon Bedrock**: Đặt các mức trần trong *AWS Budgets* để cảnh báo nhóm ngay lập tức nếu chi phí tăng bất thường.
+- **Rủi ro bảo mật máy chủ**: Tuyệt đối không cấp Public IP cho EC2, sử dụng *Session Manager* để truy cập và đóng tất cả các in-bound port không cần thiết trên Security Group.
 
-*Chi phí hạ tầng*  
-- AWS Lambda: 0,00 USD/tháng (1.000 request, 512 MB lưu trữ).  
-- S3 Standard: 0,15 USD/tháng (6 GB, 2.100 request, 1 GB quét).  
-- Truyền dữ liệu: 0,02 USD/tháng (1 GB vào, 1 GB ra).  
-- AWS Amplify: 0,35 USD/tháng (256 MB, request 500 ms).  
-- Amazon API Gateway: 0,01 USD/tháng (2.000 request).  
-- AWS Glue ETL Jobs: 0,02 USD/tháng (2 DPU).  
-- AWS Glue Crawlers: 0,07 USD/tháng (1 crawler).  
-- MQTT (IoT Core): 0,08 USD/tháng (5 thiết bị, 45.000 tin nhắn).  
-
-*Tổng*: 0,7 USD/tháng, 8,40 USD/12 tháng  
-- *Phần cứng*: 265 USD một lần (Raspberry Pi 5 và cảm biến).  
-
-### 7. Đánh giá rủi ro  
-*Ma trận rủi ro*  
-- Mất mạng: Ảnh hưởng trung bình, xác suất trung bình.  
-- Hỏng cảm biến: Ảnh hưởng cao, xác suất thấp.  
-- Vượt ngân sách: Ảnh hưởng trung bình, xác suất thấp.  
-
-*Chiến lược giảm thiểu*  
-- Mạng: Lưu trữ cục bộ trên Raspberry Pi với Docker.  
-- Cảm biến: Kiểm tra định kỳ, dự phòng linh kiện.  
-- Chi phí: Cảnh báo ngân sách AWS, tối ưu dịch vụ.  
-
-*Kế hoạch dự phòng*  
-- Quay lại thu thập thủ công nếu AWS gặp sự cố.  
-- Sử dụng CloudFormation để khôi phục cấu hình liên quan đến chi phí.  
-
-### 8. Kết quả kỳ vọng  
-*Cải tiến kỹ thuật*: Dữ liệu và phân tích thời gian thực thay thế quy trình thủ công. Có thể mở rộng tới 10–15 trạm.  
-*Giá trị dài hạn*: Nền tảng dữ liệu 1 năm cho nghiên cứu AI, có thể tái sử dụng cho các dự án tương lai.
+### 7. Kết quả kỳ vọng  
+Dự án kiến trúc AWS của nhóm sẽ tạo ra một luồng xử lý dữ liệu mạnh mẽ, kết hợp khả năng tính toán linh hoạt (EC2 Auto Scaling) và sức mạnh trí tuệ nhân tạo (Amazon Bedrock). Cấu trúc mạng VPC cô lập kết hợp các Endpoint giúp đáp ứng hoàn toàn tiêu chuẩn bảo mật doanh nghiệp (Enterprise-grade security), biến đây thành một giải pháp đáng tin cậy cho bất kỳ hệ thống phân tích, tổng hợp dữ liệu nào.

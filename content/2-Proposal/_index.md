@@ -11,105 +11,62 @@ pre: " <b> 2. </b> "
 
 In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
 
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+# AI-Powered Data Extraction & Summarization Platform
+## Group Project: Automated Data Collection and Summarization Solution using AWS & Amazon Bedrock
 
-### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+### 1. Executive Summary  
+The "AI-Powered Data Extraction & Summarization Platform" project is designed and developed by our team to solve the problem of automatically collecting, extracting, and summarizing large volumes of data from external APIs. Instead of time-consuming manual processing, the platform leverages the power of Amazon Bedrock (Generative AI) combined with a highly scalable AWS architecture (EC2 Auto Scaling, SQS, EventBridge) to process data periodically in a fully automated, secure, and cost-optimized manner.
 
-### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+### 2. Problem Statement  
+*Current Problem*  
+Currently, collecting information from external data sources (External APIs) and summarizing content is done manually or through disjointed scripts. This leads to instability, difficulty in scaling when data volume increases, and consumes a lot of personnel time to read and analyze data.
 
-### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+*Our Team's Solution*  
+Our team proposes a fully automated system on AWS. The user interface is distributed via CloudFront. The data processing backend runs on EC2 instances (located in a Private Subnet for security) managed by an Auto Scaling Group. The data retrieval and processing workflow is automatically scheduled every 8 hours by EventBridge and SQS. The core strength of the solution is the integration of Amazon Bedrock so that AI can automatically read, clean, and summarize data. The results are durably stored in S3 and DynamoDB.
 
-### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+*Benefits and Return on Investment (ROI)*  
+The solution helps 100% automate the periodic data collection and reporting process, saving dozens of working hours per week for the analysis team. By using Auto Scaling and resource limits, the system optimizes operating costs as it only allocates resources when there are actual data processing tasks.
 
-### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
+### 3. Solution Architecture and Execution Flow
+The project's architecture is designed by the team to comply with security standards and high availability on AWS, ensuring the data flow is processed in a closed and secure manner.
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+![Architecture Diagram](/images/2-Proposal/cloudbrief-current-architecture.drawio.png)
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+*Detailed Execution Flow:*
+1. **User Communication (Frontend)**: Users access the application via **CloudFront** (protected by **AWS WAF**). CloudFront securely distributes static content from the **S3 bucket (frontend, private, versioned)** via OAC (Origin Access Control) and configured behaviors.
+2. **Automation Trigger**: An **EventBridge Trigger** is configured to trigger every 8 hours, sending a message to an **SQS** queue to initiate the data extraction process.
+3. **Compute Network**: The system uses an **Auto Scaling Group** managing **EC2 Workers**. These servers are allocated in **Private Subnets (A and B)** (without Public IPs) to ensure security. These Workers continuously pull jobs from the queue via the **SQS VPC Endpoint**.
+4. **Data Collection (Outbound Traffic)**: To retrieve data from **External APIs**, the EC2 Workers connect to the internet via a **NAT Gateway** (located in a Public Subnet) and route through an **Internet Gateway**.
+5. **Generative AI Integration**: After retrieving the data, the EC2 Worker pushes the content to **Amazon Bedrock** via the **Bedrock VPC Endpoint** for the language model to extract information and summarize.
+6. **Secure Result Storage**: 
+   - Cleaned text data (Cleaned content) is pushed directly by the Worker into an **S3 bucket** via the **S3 Gateway Endpoint**.
+   - Metadata and structured information are saved to **DynamoDB** via the **DynamoDB VPC Endpoint**. This database is configured for automatic Backup.
+   - Advanced summary jobs or status messages can also be pushed to the **SQS Summarize** queue via the SQS Endpoint.
+7. **Monitoring & Alerting**:
+   - The EC2 Workers are managed via **Systems Manager (Session Manager - SSM)**, eliminating the need to open SSH ports.
+   - All logs and metrics are collected by **CloudWatch**.
+   - If the system detects abnormalities exceeding thresholds (CloudWatch Alarm), notifications are sent via an **SNS Topic** to the **Admin's Email**.
+8. **Security and Cost Management**:
+   - Use **Security Groups** and **IAM Roles** for the ASG following the principle of least privilege (least scoped).
+   - Set up **AWS Budgets** to automatically send email alerts when system costs exceed control levels.
 
-### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+### 4. Technical Implementation  
+*Team Assignment and Implementation Phases:*
+- **Phase 1 (Design & Initialization)**: The team builds the foundational VPC network with full Public/Private Subnets, NAT Gateway. Establishes the secure S3 Frontend via CloudFront and WAF.
+- **Phase 2 (AI Integration & Scheduling)**: Installs and configures the Auto Scaling Group for EC2 Workers. Builds the EventBridge schedule and SQS. Develops source code for the EC2 Worker to call External APIs and Amazon Bedrock.
+- **Phase 3 (Internal Storage)**: Sets up VPC Endpoints (S3, DynamoDB, SQS, Bedrock) to ensure traffic does not go over the public internet. Creates DynamoDB tables and corresponding S3 buckets.
+- **Phase 4 (Monitoring & Finalization)**: Integrates CloudWatch, SNS, Systems Manager. Reviews and tests IAM Roles and Security Groups to accept the project.
 
-### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+### 5. Timeline & Milestones  
+- **Week 10**: Agree on the architecture diagram, set up the VPC network and basic security infrastructure.
+- **Week 10**: Write source code for the Worker to collect data and successfully integrate with Amazon Bedrock.
+- **Week 11**: Configure EC2 Auto Scaling, EventBridge, SQS, and test connections through VPC Endpoints.
+- **Week 12**: Set up CloudWatch monitoring, SNS alerts, conduct security testing, and present the group project results.
 
-### 4. Technical Implementation
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+### 6. Risk Assessment and Contingency Plan 
+- **Connection Error to External API**: Build a *Retry* mechanism combined with storing incomplete jobs in SQS.
+- **Unexpected Costs from Amazon Bedrock**: Set strict ceilings in *AWS Budgets* to alert the team immediately if costs spike.
+- **Server Security Risks**: Strictly do not grant Public IPs to EC2, use *Session Manager* for access, and close all unnecessary inbound ports on Security Groups.
 
-**Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
-
-### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
-
-### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
-
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
-
-Total: $0.7/month, $8.40/12 months
-
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
-
-### 7. Risk Assessment
-#### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
-
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
-
-#### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
-
-### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-#### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+### 7. Expected Outcomes  
+Our team's AWS architecture project will create a robust data processing flow, combining flexible computing power (EC2 Auto Scaling) and artificial intelligence (Amazon Bedrock). The isolated VPC network structure combined with Endpoints helps fully meet enterprise-grade security standards, making this a reliable solution for any data analysis and summarization system.

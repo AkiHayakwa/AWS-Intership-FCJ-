@@ -67,4 +67,4 @@ Tham gia sự kiện giúp tôi tích lũy được nhiều bài học bổ ích
 - **Thực tế trực quan**: Demo trực tiếp luồng serverless với Cognito và Bedrock giúp tôi dễ dàng tiếp cận kiến trúc cloud-native.
 - **Kết nối cộng đồng**: Nhận được định hướng nghề nghiệp quý báu từ các anh chị mentor có kinh nghiệm trong ngành.
 
-![FCAJ Community Day - tháng 5 2026](z8021892289219_189270250e0afe76429da5f1b004ee76.jpg)
+![FCAJ Community Day - tháng 5 2026](/images/4-EventParticipated/4.1-Event1/z8021892289219_189270250e0afe76429da5f1b004ee76.jpg)
