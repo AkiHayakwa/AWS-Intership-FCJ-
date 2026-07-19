@@ -40,6 +40,6 @@ Trong quá trình thực tập, em đã tham gia 5 events, với mỗi event là
 ### [Event 5](4.5-Event5/)
 &emsp;**Tên sự kiện:** First Cloud AI Journey - AWS SLA, Security & Exam Roadmaps
 
-&emsp;**Thời gian:** 25/06/2026
+&emsp;**Thời gian:** 11/07/2026
 
 &emsp;**Vai trò trong sự kiện:** Người tham dự

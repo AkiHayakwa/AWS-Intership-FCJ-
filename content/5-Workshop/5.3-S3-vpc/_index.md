@@ -1,18 +1,35 @@
 ---
-title : "Access S3 from VPC"
+title : "Build and deploy CloudBrief"
 date : 2024-01-01
 weight : 3
 chapter : false
 pre : " <b> 5.3. </b> "
 ---
 
-#### Using Gateway endpoint
+#### Deployment architecture
 
-In this section, you will create **a Gateway eendpoint** to access **Amazon S3** from **an EC2 instance**. **The Gateway endpoint** will allow upload an object to S3 buckets without using **the Public Internet**. To create an endpoint, you must specify the VPC in which you want to create the endpoint, and the service (in this case, S3) to which you want to establish the connection.
+![CloudBrief production architecture](/images/5-Workshop/cloudbrief-evidence/production-architecture.png)
 
-![overview](/images/5-Workshop/5.3-S3-vpc/diagram2.png)
+CloudFront is the single public entry point. AWS WAF protects the distribution; S3 serves the private frontend through Origin Access Control; `/api/*` is forwarded to an internet-facing Application Load Balancer. The ALB targets two EC2 instances in private subnets. A NAT Gateway handles external RSS, Hacker News, and article fetches, while four VPC endpoints keep SQS, Bedrock, S3, and DynamoDB traffic on AWS networking.
 
-#### Content
+#### Deployment chapters
 
-- [Create gateway endpoint](3.1-create-gwe/)
-- [Test gateway endpoint](3.2-test-gwe/)
+1. [Build and synthesize locally](5.3.1-create-gwe/)
+2. [Deploy the production stack](5.3.2-test-gwe/)
+
+#### Verified production target
+
+| Setting | Verified value |
+| --- | --- |
+| Stack | `cloudbrief-dev` |
+| Region | `us-east-1` |
+| CloudFormation status | `UPDATE_COMPLETE` |
+| Compute | 2 private EC2 instances across 2 AZs |
+| Entry | CloudFront + WAF + ALB |
+| Network egress | 1 NAT Gateway |
+| VPC endpoints | 2 interface + 2 gateway endpoints |
+| Worker queues | 4 queues + 4 DLQs |
+| DynamoDB | 6 CloudBrief tables |
+| Summary model | `amazon.nova-micro-v1:0`, 256 output tokens |
+
+These values were checked with read-only AWS CLI commands on 16 July 2026.

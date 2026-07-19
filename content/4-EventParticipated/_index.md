@@ -30,5 +30,5 @@ During my internship, I participated in five events. Each one was a memorable ex
 
 ### [Event 5](4.5-Event5/)  
 &emsp;**Event Name:** First Cloud AI Journey - AWS SLA, Security & Exam Roadmaps  
-&emsp;**Date:** 06/25/2026  
+&emsp;**Date:** 07/11/2026  
 &emsp;**Role:** Attendee  

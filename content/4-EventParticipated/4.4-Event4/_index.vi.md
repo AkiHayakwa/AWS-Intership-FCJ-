@@ -14,11 +14,11 @@ pre: " <b> 4.4. </b> "
 
 ### Danh Sách Diễn Giả
 
-- **Anh Steve Trần**: Hành trình sự nghiệp và Ứng dụng AI trong việc hỗ trợ vận hành hạ tầng Cloud.
-- **Anh Hiếu Nghị , Anh Kiệt và Anh Trung**: Cùng trình bày chủ đề Xây dựng hệ thống Voice AI (AI Giọng nói) cho Tiếng Việt.
-- **Chị Bảo và Anh Nguyên Nguyễn**: Tự động hóa điều tra lỗi và phục hồi hệ thống với DevOps Agent.
-- **Anh Trường và Chị Minh Anh**: AI và nguồn nhân lực của doanh nghiệp - Ứng dụng Amazon Q trong tối ưu hóa quy trình Nhân sự (HR).
-- **Anh Toàn Nguyễn**: Thiết lập kết nối bảo mật nội bộ (Private Security/VPC Connection) cho AI (Amazon Q) và hệ thống MCP Server.
+- **Steve Trần**: Hành trình sự nghiệp và Ứng dụng AI trong việc hỗ trợ vận hành hạ tầng Cloud.
+- **Hiếu Nghị , Anh Kiệt và Anh Trung**: Cùng trình bày chủ đề Xây dựng hệ thống Voice AI (AI Giọng nói) cho Tiếng Việt.
+- **Chị Bảo và Nguyên Nguyễn**: Tự động hóa điều tra lỗi và phục hồi hệ thống với DevOps Agent.
+- **Anh Trường và Minh Anh**: AI và nguồn nhân lực của doanh nghiệp - Ứng dụng Amazon Q trong tối ưu hóa quy trình Nhân sự (HR).
+- **Toàn Nguyễn**: Thiết lập kết nối bảo mật nội bộ (Private Security/VPC Connection) cho AI (Amazon Q) và hệ thống MCP Server.
 
 ### Nội Dung Nổi Bật
 

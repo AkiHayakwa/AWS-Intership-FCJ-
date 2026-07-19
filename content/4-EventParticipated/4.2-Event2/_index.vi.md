@@ -78,3 +78,4 @@ Tham gia meetup lần này mang lại nhiều cảm xúc và kiến thức thự
 - Được truyền cảm hứng từ những câu chuyện "vượt sướng" và nỗ lực không ngừng của các diễn giả sinh viên.
 - Sự kiện đã thay đổi hoàn toàn định kiến về "lười biếng" và giúp tôi có cái nhìn thực tế hơn về lộ trình trở thành một Cloud Engineer/DevOps chuyên nghiệp.
 
+![First Cloud AI Journey - AWS Community Day](/images/4-EventParticipated/4.2-Event2/z8021892298316_c3232221f74454c239ecaa61cf71849c.jpg)

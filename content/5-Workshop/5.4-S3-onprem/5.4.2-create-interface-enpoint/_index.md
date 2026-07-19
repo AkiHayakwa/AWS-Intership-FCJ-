@@ -1,43 +1,55 @@
 ---
-title : "Create an S3 Interface endpoint"
+title : "Test the real RSS and Hacker News pipeline"
 date : 2024-01-01
 weight : 2
 chapter : false
 pre : " <b> 5.4.2 </b> "
 ---
 
-In this section you will create and test an S3 interface endpoint using the simulated on-premises environment deployed as part of this workshop.
+#### Step 1: Verify the public health route
 
-1. Return to the Amazon VPC menu. In the navigation pane, choose Endpoints, then click Create Endpoint.
+```bash
+curl -i https://d3u5pkyxnd3uus.cloudfront.net/api/health
+```
 
-2. In Create endpoint console:
-+ Name the interface endpoint
-+ In Service category, choose **aws services** 
+Verified on 16 July 2026: HTTP `200`, project `cloudbrief`, stage `dev`, status `healthy`.
 
-![name](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint1.png)
+#### Step 2: Verify protected collection
 
-3.  In the Search box, type S3 and press Enter. Select the endpoint named com.amazonaws.us-east-1.s3. Ensure that the Type column indicates Interface.
+Calling the admin collection route without credentials must return an unauthorized response. A valid admin request accepts RSS and Hacker News sources and queues work through collection, extraction, summarization, and image processing.
 
-![service](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint2.png)
+```bash
+curl -X POST https://d3u5pkyxnd3uus.cloudfront.net/api/v1/collect \
+  -H 'content-type: application/json' \
+  -d '{"sources":["rss","hackernews"],"limit":5}'
+```
 
-4. For VPC, select VPC Cloud from the drop-down.
-{{% notice warning %}}
-Make sure to choose "VPC Cloud" and not "VPC On-prem"
-{{% /notice %}}
-+ Expand **Additional settings** and ensure that Enable DNS name is *not* selected (we will use this in the next part of the workshop)
+Do not place the real admin key in a screenshot or shell history.
 
-![vpc](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint3.png)
+#### Step 3: Read a real brief
 
-5. Select 2 subnets in the following AZs: us-east-1a and us-east-1b
+```bash
+curl 'https://d3u5pkyxnd3uus.cloudfront.net/api/v1/brief?limit=5'
+```
 
-![subnets](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint4.png)
+Expected article contract:
 
-6. For Security group, choose SGforS3Endpoint:
+```json
+{
+  "id": "article-id",
+  "title": "Publisher title",
+  "summary": "Bedrock or deterministic fallback summary",
+  "canonicalUrl": "https://publisher.example/article",
+  "imageUrl": "https://cloudfront.example/article-images/cover.webp"
+}
+```
 
-![sg](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint5.png)
+The worker accepts publisher PNG, JPEG, or WebP images, validates and converts them to WebP, uploads them to a private S3 bucket, and stores only the CloudFront URL in DynamoDB.
 
-7. Keep the default policy - full access and click Create endpoint
+The live response on 16 July returned five Hacker News articles. All five had a canonical publisher URL, `SUMMARIZED` status, and a processed CloudFront WebP cover URL. One verified title was **Bluesky Trademarks ATProto** from the AT Protocol site.
 
-![success](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint-success.png)
+![API smoke test passed](/images/5-Workshop/cloudbrief-evidence/api-smoke-ok.png)
 
-Congratulation on successfully creating S3 interface endpoint. In the next step, we will test the interface endpoint.
+#### Bedrock result
+
+Nova Micro is configured as the low-cost model with a 256-token output cap. During the recorded deployment, the AWS account reached its daily Nova token allowance. CloudBrief therefore stored deterministic fallback summaries instead of dropping articles; CloudWatch exposes this condition.

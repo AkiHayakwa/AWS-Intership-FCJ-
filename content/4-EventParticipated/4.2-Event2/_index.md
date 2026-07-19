@@ -78,4 +78,4 @@ Participating in this meetup brought many emotions and practical knowledge:
 - Being inspired by the stories of overcoming hardship and continuous efforts of the student speakers.
 - The event completely changed my preconceptions about "laziness" and gave me a more realistic view of the roadmap to becoming a professional Cloud/DevOps Engineer.
 
-
+![First Cloud AI Journey - AWS Community Day](/images/4-EventParticipated/4.2-Event2/z8021892298316_c3232221f74454c239ecaa61cf71849c.jpg)

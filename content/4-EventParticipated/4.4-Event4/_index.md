@@ -14,11 +14,11 @@ pre: " <b> 4.4. </b> "
 
 ### Speakers
 
-- **Mr. Steve Tran**: Career journey and AI applications in cloud infrastructure operations.
-- **Mr. Hieu Nghi , Mr. Kiet , and Mr. Trung**: Co-presenting on building a Voice AI system for the Vietnamese language.
-- **Ms. Bao and Mr. Nguyen Nguyen**: Automating error investigation and system recovery with DevOps Agents.
-- **Mr. Truong and Ms. Minh Anh**: AI and enterprise human resources - Applying Amazon Q to optimize HR workflows.
-- **Mr. Toan Nguyen**: Establishing secure private connectivity (Private Security/VPC Connection) for AI (Amazon Q) and MCP Server systems.
+- **Steve Tran**: Career journey and AI applications in cloud infrastructure operations.
+- **Hieu Nghi , Mr. Kiet , and Mr. Trung**: Co-presenting on building a Voice AI system for the Vietnamese language.
+- **Ms. Bao and Nguyen Nguyen**: Automating error investigation and system recovery with DevOps Agents.
+- **Mr. Truong and Minh Anh**: AI and enterprise human resources - Applying Amazon Q to optimize HR workflows.
+- **Toan Nguyen**: Establishing secure private connectivity (Private Security/VPC Connection) for AI (Amazon Q) and MCP Server systems.
 
 ### Key Highlights
 
