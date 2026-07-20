@@ -29,3 +29,5 @@ pre: " <b> 1. </b> "
 **Tuần 11:** [Dự án CloudBrief: Tích hợp AI Summarizer Worker](1.11-week11/)
 
 **Tuần 12:** [Dự án CloudBrief: Lập trình xử lý ảnh & Cải thiện hệ thống](1.12-week12/)
+
+**Tuần 13:** [Lập trình Kotlin & Jetpack Compose nâng cao](1.13-week13/)

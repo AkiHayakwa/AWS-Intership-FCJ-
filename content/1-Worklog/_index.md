@@ -30,3 +30,5 @@ pre: " <b> 1. </b> "
 **Week 11:** [CloudBrief: Implementing Summarizer Worker](1.11-week11/)
 
 **Week 12:** [CloudBrief: Image Processing Backend & Bug Fixing](1.12-week12/)
+
+**Week 13:** [Advanced Kotlin & Jetpack Compose](1.13-week13/)

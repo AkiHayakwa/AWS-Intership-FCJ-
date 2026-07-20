@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 2.2. </b> "
 ---
 
-# Proposal 2 Title
+# Project Video Demo
 
 ### Video Demo
-<iframe src="https://drive.google.com/file/d/1wOCk0e3c2jL6nVLbq-lXCWjjDkem2PBb/preview" width="640" height="480" allow="autoplay"></iframe>
+<iframe src="https://drive.google.com/file/d/1wOCk0e3c2jL6nVLbq-lXCWjjDkem2PBb/preview" width="100%" height="700" allow="autoplay" frameborder="0"></iframe>
