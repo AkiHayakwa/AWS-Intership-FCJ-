@@ -20,12 +20,12 @@ pre: " <b> 4.3. </b> "
 
 ### Danh Sách Diễn Giả
 
-- **Bao Huynh** - Junior Cloud Native Developer tại Endava Vietnam & Founder ITea Lab.
-- **Viet Phat** - Chuyên ngành AI tại Swinburne University of Technology.
-- **Lê Hoàng Gia Đại** - Sinh viên năm cuối HUTECH, Team AWS G3.
-- **Tran Trung Vinh** - System Administrator tại Central Retail Group.
-- **Nguyen Quoc Bao** - Diễn giả về Multiplayer Cloud Networking.
-- **Truong Huy Phuoc** - Diễn giả về The Art of Effective Teamwork.
+- **Bảo Huỳnh**: Docker - Công nghệ Container hóa
+- **Việt Phát**: GraphRAG với Amazon Bedrock & Neptune
+- **Lê Hoàng Gia Đại**: Hệ thống NIDS dựa trên Machine Learning
+- **Trần Trung Vinh**: Lộ trình nghề nghiệp IT Infrastructure
+- **Nguyễn Bảo**: Kết nối Game với AWS WebSockets
+- **Trương Huy Phước**: The Art of Effective Teamwork
 
 ### Nội Dung Nổi Bật
 

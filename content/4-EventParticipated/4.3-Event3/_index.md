@@ -20,12 +20,12 @@ pre: " <b> 4.3. </b> "
 
 ### Speakers
 
-- **Bao Huynh** – Junior Cloud Native Developer at Endava Vietnam & Founder ITea Lab.
-- **Viet Phat** – AI Major at Swinburne University of Technology.
-- **Lê Hoàng Gia Đại** – Final-year student at HUTECH, Team AWS G3.
-- **Tran Trung Vinh** – System Administrator at Central Retail Group.
-- **Nguyen Quoc Bao** – Speaker on Multiplayer Cloud Networking.
-- **Truong Huy Phuoc** – Speaker on The Art of Effective Teamwork.
+- **Bao Huynh** - Docker - Containerization Technology
+- **Viet Phat** - GraphRAG with Amazon Bedrock & Neptune
+- **Lê Hoàng Gia Đại** - Machine Learning-based NIDS (Network Intrusion Detection System)
+- **Tran Trung Vinh** - IT Infrastructure Career Path
+- **Nguyen Quoc Bao** - Multiplayer Game Connectivity with AWS WebSockets
+- **Truong Huy Phuoc** - The Art of Effective Teamwork
 
 ### Key Highlights
 

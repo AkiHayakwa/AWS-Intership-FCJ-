@@ -38,7 +38,7 @@ pre: " <b> 1.3. </b> "
   + Thiết lập IAM Permission Boundaries và Organization Policies.
   + Thực hành mã hóa dữ liệu (encrypt at rest) với AWS KMS và giám sát hoạt động bằng CloudTrail.
 
-- Giám sát & Vận hành Hệ thống
+- Monitoring 
 
   + Tích hợp Grafana với CloudWatch để giám sát tài nguyên mạnh mẽ hơn.
   + Quản lý bản vá lỗi trên nhiều máy chủ bằng AWS Systems Manager (Run Command).

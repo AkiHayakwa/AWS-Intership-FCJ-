@@ -17,9 +17,9 @@ pre: " <b> 4.5. </b> "
 
 ### Speakers List
 
-- **Nguyễn Huỳnh Sơn** - Member of AWS Student Builder Group HUFLIT, Ex Infrastructure Reliability Engineer at SPS; shared on the topic of SLA and Monitoring systems.
+- **Nguyễn Huỳnh Sơn** - shared on the topic of SLA and Monitoring systems.
 - **Ngo Le Tan Huy** - Speaker guiding the strategic roadmap and tips for the AWS Cloud Practitioner exam.
-- **Thinh Nguyen (Nguyen Tuan Thinh)** - DevOps/DevSecOps/Cloud Engineer at Styl Solutions; shared on automated security solutions with AWS Security Agent.
+- **Thinh Nguyen** - shared on automated security solutions with AWS Security Agent.
 
 ### Key Highlights
 

@@ -109,7 +109,7 @@ WHERE account = '123456789012' AND region = 'us-east-1' AND timestamp = '2026/05
 ORDER BY eventtime DESC;
 ```
 
-### 2. Giám Sát Truy Cập Chéo Tài Khoản
+### 2. Giám Sát Truy Cập Tài Khoản
 Phát hiện các yêu cầu truy cập S3 bắt nguồn từ tài khoản AWS bên ngoài:
 
 ```sql

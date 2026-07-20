@@ -11,7 +11,7 @@ pre: " <b> 1.1. </b> "
 * Kết nối, làm quen với các thành viên và nội quy của First Cloud Journey.
 * Nắm vững các khái niệm cơ bản về Cloud Computing và các nhóm dịch vụ cốt lõi của AWS.
 * Thiết lập hệ thống mạng VPC cơ bản, khởi tạo và quản trị máy chủ EC2 (Linux & Windows).
-* Tìm hiểu quản lý danh tính và quyền truy cập (IAM), thiết lập môi trường phát triển Cloud9 và cấu hình AWS CLI.
+* Tìm hiểu quản lý danh tính và quyền truy cập (IAM) và cấu hình AWS CLI.
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
@@ -22,7 +22,7 @@ pre: " <b> 1.1. </b> "
 | 5   | - Cấu hình Elastic IP , tạo NAT Gateway , Sử dụng EC2 instance endpoint để kết nối server <br> Học cách xây dựng site-to-site VPN connection                  | 23/04/2026   | 23/04/2026      | <https://cloudjourney.awsstudygroup.com/> |
 | 6   | - Tìm hiểu và làm việc cách tạo EC2 instance windows , linux và kết nối máy tính đến microsoft window server , linux server <br> Học được cách chuyển loại instance của EC2 , tạo và quản lý được cách làm việc với snapshot EBS , AMI và recovering access của window instance <br> Học được cách set up LAMP server và config database để deployee ứng dụng <br> Làm việc với cách chia role và gán role để quản lý chi phí IAM                                                                                   | 24/04/2026  | 24/04/2026      | <https://cloudjourney.awsstudygroup.com/> |
 | 7  | Tìm hiểu và nghiên cứu về cách sử dụng Instance Profile của IAM Role dành cho máy chủ EC2| 25/04/2026 | 25/04/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| Chủ nhật | - học và tạo cloud9 trong môi trường phát triển  | 26/04/2026 | 26/04/2026   | <https://cloudjourney.awsstudygroup.com/> |
+| Chủ nhật | - Ôn tập kiến thức trong tuần  | 26/04/2026 | 26/04/2026   | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 1:
 
@@ -45,6 +45,3 @@ pre: " <b> 1.1. </b> "
   + Tích lũy kinh nghiệm thực tế trong việc khởi tạo, kết nối (qua SSH/RDP) và quản trị máy chủ EC2 trên cả hai hệ điều hành Linux và Windows.
   + Thực hiện thành công các tác vụ quản trị máy chủ nâng cao như: thay đổi cấu hình máy (instance types), quản lý bản sao lưu (EBS snapshot, AMI), khôi phục quyền truy cập máy chủ Windows và cài đặt môi trường web LAMP.
 
- - Môi trường Phát triển
-
-  + Khởi tạo và thiết lập thành công môi trường lập trình trực tuyến AWS Cloud9 (Cloud IDE) để phục vụ cho các công việc phát triển dự án tiếp theo.

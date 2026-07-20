@@ -62,9 +62,9 @@ pre: " <b> 4.1. </b> "
 
 ### Trải nghiệm trong event
 
-Tham gia sự kiện giúp tôi tích lũy được nhiều bài học bổ ích:
+Tham gia sự kiện giúp em tích lũy được nhiều bài học bổ ích:
 - **Truyền cảm hứng**: Câu chuyện từ các diễn giả sinh viên cho thấy sự tự tin và nỗ lực chia sẻ kiến thức cộng đồng là cực kỳ đáng quý.
-- **Thực tế trực quan**: Demo trực tiếp luồng serverless với Cognito và Bedrock giúp tôi dễ dàng tiếp cận kiến trúc cloud-native.
+- **Thực tế trực quan**: Demo trực tiếp luồng serverless với Cognito và Bedrock giúp em dễ dàng tiếp cận kiến trúc cloud-native.
 - **Kết nối cộng đồng**: Nhận được định hướng nghề nghiệp quý báu từ các anh chị mentor có kinh nghiệm trong ngành.
 
 ![FCAJ Community Day - tháng 5 2026](/images/4-EventParticipated/4.1-Event1/z8021892289219_189270250e0afe76429da5f1b004ee76.jpg)

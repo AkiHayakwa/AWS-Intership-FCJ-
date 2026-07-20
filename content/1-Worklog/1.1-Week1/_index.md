@@ -11,7 +11,7 @@ pre: " <b> 1.1. </b> "
 * Connect and get acquainted with members and rules of First Cloud Journey.
 * Understand basic cloud computing concepts and core AWS service categories (Compute, Storage, Networking, Database).
 * Design and provision custom VPC networks, and launch and manage EC2 instances (Linux & Windows).
-* Learn Identity and Access Management (IAM) and configure development environments using AWS Cloud9 and AWS CLI.
+* Learn Identity and Access Management (IAM) and configure AWS CLI.
 
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
@@ -22,7 +22,7 @@ pre: " <b> 1.1. </b> "
 | 5   | -Set up Elastic Ip ,  Create NAT Gateway , Using EC2 instance endpoint to connect <br> learning how to set up site-to-site VPN connection| 04/23/2026 | 04/23/2026      | <https://cloudjourney.awsstudygroup.com/> |
 | 6   | - Learn and practice how to create Windows and Linux EC2 instances, and how to connect from a local computer to Microsoft Windows and Linux servers. <br> Learn how to change EC2 instance types, create and manage EBS snapshots and AMIs, and recover access to Windows instances. <br> Learn how to set up a LAMP server and configure a database to deploy applications. <br> Practice creating, dividing, and assigning IAM roles for cost management.                                                                               | 04/24/2026 | 04/24/2026      | <https://cloudjourney.awsstudygroup.com/> |
 | 7  | - learn and research how to instance profiling IAM role for EC2 | 04/25/2026 | 04/25/2026      | <https://cloudjourney.awsstudygroup.com/> |
-| Sunday | - learn and create cloud9 to development environment | 04/26/2026 | 04/26/2026   | <https://cloudjourney.awsstudygroup.com/> |
+| Sunday | - Review and practice weekly knowledge | 04/26/2026 | 04/26/2026   | <https://cloudjourney.awsstudygroup.com/> |
 ### Week 1 Achievements:
 
 - Onboarding & AWS Fundamentals
@@ -43,7 +43,3 @@ pre: " <b> 1.1. </b> "
 
   + Acquired practical skills in deploying, connecting to (via SSH/RDP), and managing both Linux and Windows EC2 instances.
   + Performed advanced administration tasks such as changing instance types, managing EBS snapshots and AMIs, recovering access to Windows instances, and deploying a LAMP stack server.
-
-- Development Environment
-
-  + Provisioned and configured an AWS Cloud9 IDE instance to serve as a cloud-based development environment for upcoming tasks.
