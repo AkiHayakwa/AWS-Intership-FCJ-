@@ -6,9 +6,6 @@ chapter : false
 pre : " <b> 5.3.2 </b> "
 ---
 
-{{% notice warning %}}
-The bootstrap and deploy commands create or update AWS resources. Run them only with explicit approval, an active budget, and a rollback plan.
-{{% /notice %}}
 
 #### Step 1: Verify identity and current stack
 

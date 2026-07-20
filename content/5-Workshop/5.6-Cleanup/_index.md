@@ -6,10 +6,6 @@ chapter : false
 pre : " <b> 5.6. </b> "
 ---
 
-{{% notice warning %}}
-The production demo is still live. The commands below are a reviewed cleanup procedure and were not executed while writing this workshop.
-{{% /notice %}}
-
 #### 1. Preserve evidence
 
 Before cleanup, export sanitized proof for CloudFormation, CloudFront/WAF, ALB target health, ASG instances, VPC endpoints, queues/DLQs, DynamoDB, S3, CloudWatch, SNS, Backup, Budgets, API responses, and browser tests.

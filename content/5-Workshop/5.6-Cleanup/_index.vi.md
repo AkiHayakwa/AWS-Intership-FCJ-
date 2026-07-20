@@ -6,9 +6,6 @@ chapter : false
 pre : " <b> 5.6. </b> "
 ---
 
-{{% notice warning %}}
-Production demo vẫn đang live. Các lệnh dưới đây là cleanup procedure đã review và chưa được chạy trong lúc viết workshop.
-{{% /notice %}}
 
 #### 1. Lưu bằng chứng
 
