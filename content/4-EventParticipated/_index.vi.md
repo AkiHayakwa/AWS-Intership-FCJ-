@@ -33,7 +33,7 @@ Trong quá trình thực tập, em đã tham gia 5 events, với mỗi event là
 ### [Event 4](4.4-Event4/)
 &emsp;**Tên sự kiện:** FCAJ Community Day - Tháng 6 2026
 
-&emsp;**Thời gian:** 20/06/2026
+&emsp;**Thời gian:** 27/06/2026
 
 &emsp;**Vai trò trong sự kiện:** Người tham dự 
 

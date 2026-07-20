@@ -25,7 +25,7 @@ During my internship, I participated in five events. Each one was a memorable ex
 
 ### [Event 4](4.4-Event4/)  
 &emsp;**Event Name:** FCAJ Community Day - June 2026  
-&emsp;**Date:** 06/20/2026  
+&emsp;**Date:** 06/27/2026  
 &emsp;**Role:** Attendee  
 
 ### [Event 5](4.5-Event5/)  
