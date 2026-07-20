@@ -17,7 +17,7 @@ The "AI-Powered Data Extraction & Summarization Platform" project is designed an
 Currently, collecting information from external data sources (External APIs) and summarizing content is done manually or through disjointed scripts. This leads to instability, difficulty in scaling when data volume increases, and consumes a lot of personnel time to read and analyze data.
 
 *Our Team's Solution*  
-Our team proposes a fully automated system on AWS. The user interface is distributed via CloudFront. The data processing backend runs on EC2 instances (located in a Private Subnet for security) managed by an Auto Scaling Group. The data retrieval and processing workflow is automatically scheduled every 8 hours by EventBridge and SQS. The core strength of the solution is the integration of Amazon Bedrock so that AI can automatically read, clean, and summarize data. The results are durably stored in S3 and DynamoDB.
+Our team proposes a fully automated system on AWS. The user interface is distributed via CloudFront. API traffic is routed and load-balanced through an Application Load Balancer (ALB). The data processing backend runs on EC2 instances (located in a Private Subnet for security) which are autonomously managed by an Auto Scaling Group. The data retrieval and processing workflow is automatically scheduled every 8 hours by EventBridge and SQS. The core strength of the solution is the integration of Amazon Bedrock so that AI can automatically read, clean, and summarize data. The results are durably stored in S3 and DynamoDB.
 
 *Benefits and Return on Investment (ROI)*  
 The solution helps 100% automate the periodic data collection and reporting process, saving dozens of working hours per week for the analysis team. By using Auto Scaling and resource limits, the system optimizes operating costs as it only allocates resources when there are actual data processing tasks.
@@ -28,9 +28,9 @@ The project's architecture is designed by the team to comply with security stand
 ![Architecture Diagram](/images/2-Proposal/cloudbrief-current-architecture.drawio.png)
 
 *Detailed Execution Flow:*
-1. **User Communication (Frontend)**: Users access the application via **CloudFront** (protected by **AWS WAF**). CloudFront securely distributes static content from the **S3 bucket (frontend, private, versioned)** via OAC (Origin Access Control) and configured behaviors.
+1. **User Communication (Frontend & API)**: Users access the application via **CloudFront** (protected by **AWS WAF**). CloudFront securely distributes static content from the **S3 bucket (frontend, private, versioned)** via OAC (Origin Access Control). For API communication requests, CloudFront routes traffic directly to the **Application Load Balancer (ALB)**.
 2. **Automation Trigger**: An **EventBridge Trigger** is configured to trigger every 8 hours, sending a message to an **SQS** queue to initiate the data extraction process.
-3. **Compute Network**: The system uses an **Auto Scaling Group** managing **EC2 Workers**. These servers are allocated in **Private Subnets (A and B)** (without Public IPs) to ensure security. These Workers continuously pull jobs from the queue via the **SQS VPC Endpoint**.
+3. **Compute Network & Load Balancing**: The system utilizes an **Application Load Balancer (ALB)** to balance API requests across the EC2 server cluster. These servers are managed by an **Auto Scaling Group** and are safely allocated within **Private Subnets (A and B)** (without Public IPs) to ensure security. Simultaneously, the EC2 Workers continuously pull jobs from the queue via the **SQS VPC Endpoint**.
 4. **Data Collection (Outbound Traffic)**: To retrieve data from **External APIs**, the EC2 Workers connect to the internet via a **NAT Gateway** (located in a Public Subnet) and route through an **Internet Gateway**.
 5. **Generative AI Integration**: After retrieving the data, the EC2 Worker pushes the content to **Amazon Bedrock** via the **Bedrock VPC Endpoint** for the language model to extract information and summarize.
 6. **Secure Result Storage**: 

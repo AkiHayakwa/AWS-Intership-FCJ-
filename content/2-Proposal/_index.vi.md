@@ -17,7 +17,7 @@ Dự án "AI-Powered Data Extraction & Summarization Platform" được thiết 
 Hiện tại, việc thu thập thông tin từ các nguồn dữ liệu bên ngoài (External APIs) và tóm tắt nội dung đang được thực hiện thủ công hoặc thông qua các kịch bản (script) rời rạc. Điều này dẫn đến sự thiếu ổn định, khó mở rộng khi lượng dữ liệu tăng lên, và tiêu tốn nhiều thời gian của nhân sự để đọc và phân tích dữ liệu.
 
 *Giải pháp của nhóm*  
-Nhóm chúng tôi đề xuất một hệ thống tự động hóa hoàn toàn trên AWS. Giao diện người dùng được phân phối qua CloudFront. Backend xử lý dữ liệu chạy trên các máy chủ EC2 (nằm trong Private Subnet để bảo mật) được quản lý bởi Auto Scaling Group. Quá trình lấy dữ liệu và xử lý được lập lịch tự động mỗi 8 giờ bởi EventBridge và SQS. Sức mạnh cốt lõi của giải pháp là việc tích hợp Amazon Bedrock để AI tự động đọc hiểu, làm sạch và tóm tắt dữ liệu. Kết quả được lưu trữ bền vững trên S3 và DynamoDB.
+Nhóm chúng tôi đề xuất một hệ thống tự động hóa hoàn toàn trên AWS. Giao diện người dùng được phân phối qua CloudFront. Lưu lượng API được định tuyến và cân bằng tải thông qua Application Load Balancer (ALB). Backend xử lý dữ liệu chạy trên các máy chủ EC2 (nằm trong Private Subnet để bảo mật) được quản lý tự động bởi Auto Scaling Group. Quá trình lấy dữ liệu và xử lý được lập lịch tự động mỗi 8 giờ bởi EventBridge và SQS. Sức mạnh cốt lõi của giải pháp là việc tích hợp Amazon Bedrock để AI tự động đọc hiểu, làm sạch và tóm tắt dữ liệu. Kết quả được lưu trữ bền vững trên S3 và DynamoDB.
 
 *Lợi ích và hoàn vốn đầu tư (ROI)*  
 Giải pháp giúp tự động hóa 100% quy trình thu thập và báo cáo dữ liệu định kỳ, tiết kiệm hàng chục giờ làm việc mỗi tuần cho đội ngũ phân tích. Bằng việc sử dụng Auto Scaling và giới hạn tài nguyên, hệ thống tối ưu được chi phí vận hành do chỉ cấp phát tài nguyên khi thực sự có tác vụ xử lý dữ liệu.
@@ -29,9 +29,9 @@ Kiến trúc của dự án được nhóm thiết kế tuân thủ các tiêu c
 
 
 *Luồng chạy chi tiết của dự án (Execution Flow):*
-1. **Giao tiếp người dùng (Frontend)**: Người dùng truy cập ứng dụng thông qua **CloudFront** (được bảo vệ bởi **AWS WAF**). CloudFront phân phối nội dung tĩnh từ **S3 bucket (frontend, private, versioned)** một cách an toàn thông qua tính năng OAC (Origin Access Control) cùng các behavior đã thiết lập.
+1. **Giao tiếp người dùng (Frontend & API)**: Người dùng truy cập ứng dụng thông qua **CloudFront** (được bảo vệ bởi **AWS WAF**). CloudFront phân phối nội dung tĩnh từ **S3 bucket (frontend, private, versioned)** một cách an toàn thông qua tính năng OAC (Origin Access Control). Đối với các yêu cầu giao tiếp API, CloudFront sẽ định tuyến lưu lượng trực tiếp đến **Application Load Balancer (ALB)**.
 2. **Kích hoạt tự động hóa**: **EventBridge Trigger** được cấu hình để kích hoạt mỗi 8 giờ, gửi thông điệp vào hàng đợi **SQS** để bắt đầu quy trình trích xuất dữ liệu.
-3. **Mạng lưới tính toán**: Hệ thống sử dụng **Auto Scaling Group** quản lý các **EC2 Worker**. Các máy chủ này được phân bổ vào các **Private Subnet (A và B)** (không có Public IP) nhằm đảm bảo an ninh. Các Worker này liên tục kéo (pull) công việc (job) từ hàng đợi thông qua **SQS VPC Endpoint**.
+3. **Mạng lưới tính toán & Phân tải**: Hệ thống sử dụng **Application Load Balancer (ALB)** để cân bằng tải các request API xuống cụm máy chủ EC2. Các máy chủ này được quản lý bởi **Auto Scaling Group** và phân bổ kín bên trong các **Private Subnet (A và B)** (không có Public IP) nhằm đảm bảo an ninh. Đồng thời, các EC2 Worker liên tục kéo (pull) công việc (job) từ hàng đợi thông qua **SQS VPC Endpoint**.
 4. **Thu thập dữ liệu (Outbound Traffic)**: Để lấy dữ liệu từ **External API**, các EC2 Worker kết nối ra internet thông qua **NAT Gateway** (đặt ở Public Subnet) và đi qua **Internet Gateway**.
 5. **Tích hợp Generative AI**: Sau khi lấy được dữ liệu, EC2 Worker đẩy nội dung sang **Amazon Bedrock** thông qua **Bedrock VPC Endpoint** để mô hình AI xử lý ngôn ngữ thực hiện việc trích xuất thông tin và tóm tắt.
 6. **Lưu trữ kết quả an toàn**: 

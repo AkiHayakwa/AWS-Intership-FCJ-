@@ -162,4 +162,4 @@ ORDER BY eventtime DESC;
 
 Việc tập trung hóa S3 data events qua CloudTrail cung cấp ngữ cảnh định danh vô cùng quan trọng cho công tác bảo mật và tuân thủ. Bằng cách kết hợp với Athena partition projection, bạn có thể thực hiện các cuộc điều tra bảo mật hiệu quả và tối ưu chi phí trên hàng triệu hành động.
 
-**Link tham khảo:** [https://www.facebook.com/share/p/1UDZGdgAx6/?](https://www.facebook.com/share/p/1UDZGdgAx6/?)
+**Link dịch bài viết:** [https://www.facebook.com/share/p/1UDZGdgAx6/?](https://www.facebook.com/share/p/1UDZGdgAx6/?)
