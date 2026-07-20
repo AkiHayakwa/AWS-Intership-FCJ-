@@ -8,5 +8,9 @@ pre: " <b> 2.2. </b> "
 
 # Video Demo Dự Án
 
+### Link Truy Cập 🌐
+- **Giao diện người dùng (User Web):** [https://d3u5pkyxnd3uus.cloudfront.net/](https://d3u5pkyxnd3uus.cloudfront.net/)
+- **Giao diện quản trị (Admin Web):** [https://d3u5pkyxnd3uus.cloudfront.net/ops.html](https://d3u5pkyxnd3uus.cloudfront.net/ops.html)
+
 ### Video Demo
 <iframe src="https://drive.google.com/file/d/1wOCk0e3c2jL6nVLbq-lXCWjjDkem2PBb/preview" width="100%" height="600" allow="autoplay"></iframe>
